@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4481926304603081695}
   - component: {fileID: 4481926304603081680}
   - component: {fileID: 4481926304603081681}
-  - component: {fileID: -3378746257311972510}
   m_Layer: 0
   m_Name: MovWall
   m_TagString: Enemy
@@ -111,16 +110,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   actualSpeed: 0
---- !u!114 &-3378746257311972510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4481926304603081682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88cf5b93e94619543ae53182976cdf87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0

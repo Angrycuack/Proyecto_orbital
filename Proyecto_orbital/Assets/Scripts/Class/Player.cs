@@ -5,6 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class Player
 {
-    public int money;
     public int premium;
+    public int hiScore;
 }
