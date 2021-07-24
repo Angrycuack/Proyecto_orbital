@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         wayPointsToFollow = GameObject.Find(wayPointsName).GetComponent<Waypoints>();
+        Debug.Log(wayPointsToFollow);
         last_position = transform.position;
     }
 
