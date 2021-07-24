@@ -35,14 +35,13 @@ public class PlayerMovement : MonoBehaviour
             currentWayPoint++;
         }
 
-        detectPlayerPosition();
     }
 
-    void detectPlayerPosition()
-    {
-        float logX = Player.transform.position.x;
-        float logY = Player.transform.position.y;
-        float logZ = Player.transform.position.z;
-        Debug.Log("X:" + logX + "Y:" + logY + "Z:" + logZ);
-    }
+    //void detectPlayerPosition()
+    //{
+    //    float logX = Player.transform.position.x;
+    //    float logY = Player.transform.position.y;
+    //    float logZ = Player.transform.position.z;
+    //    Debug.Log("X:" + logX + "Y:" + logY + "Z:" + logZ);
+    //}
 }
