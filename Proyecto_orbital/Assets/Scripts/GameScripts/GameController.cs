@@ -6,13 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    public static GameController instance;
+
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject gameOverPanel;
     private float score;
+    public int orbitNumber;
 
-    private void Start()
+    private void Awake()
     {
         score = 0f;
+        instance = this;
     }
     private void Update()
     {
@@ -35,5 +40,23 @@ public class GameController : MonoBehaviour
         pausePanel.SetActive(state);
         if (state) { Time.timeScale = 0; }
         else { Time.timeScale = 1; }
+    }
+    /// <summary>
+    /// Método que se encarga de activar el panel de Game Over.
+    /// </summary>
+    public void GameOver()
+    {
+        if (orbitNumber <= 0)
+        {
+            Time.timeScale = 0;
+            gameOverPanel.SetActive(true);
+            Debug.Log("Game Over");
+        }       
+    }
+
+    public void AddOrbit(bool add)
+    {
+        if (add) { orbitNumber++; }
+        else { orbitNumber--; GameOver();}
     }
 }
