@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class DontDestroyOnLoad : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
-    }
+        GameObject[] obj = GameObject.FindGameObjectsWithTag("GameManager");
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (obj.Length > 1)
+        {
+            Destroy(this.gameObject);
+        }
+
+        DontDestroyOnLoad(this.gameObject);
     }
 }
