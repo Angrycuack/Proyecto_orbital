@@ -2,21 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotateAround : MonoBehaviour
+public class OrbitalMovement : MonoBehaviour
 {
-    [Header("Variables dedicadas al movimiento de orbita del Player")]
-    [SerializeField] private Transform target;
+    [SerializeField] private Transform centralSphere;
+    [SerializeField] private float speed;
     private bool rotateUp;
     private Vector3 direction;
-    private float speed;
+    
 
     private void Start()
     {
-        speed = 50f;
+        centralSphere = GameObject.Find("CentralSphere").transform;
+        this.gameObject.transform.SetParent(centralSphere);
         rotateUp = true;
         direction = Vector3.up;
     }
-    void Update()
+
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -27,6 +29,6 @@ public class RotateAround : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        transform.RotateAround(target.transform.position, direction, speed * Time.deltaTime);
+        transform.RotateAround(centralSphere.transform.position, direction, speed * Time.deltaTime);
     }
 }
