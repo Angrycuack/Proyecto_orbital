@@ -43,7 +43,7 @@ Material:
     - Vector1_7b780c3e64c64b4c8c91bb863b950342: 1
     - Vector1_838b105d61bd45a19689b75f6708f436: 1
     - Vector1_8451cd1b5479479caae9d5b577d9edc8: 4
-    - _LightProbeContribution: 5
+    - _LightProbeContribution: 1
     - _OutlineDepthSensitivity: 1
     - _OutlineNormalsSensitivity: 1
     - _OutlineThickness: 1
