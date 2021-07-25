@@ -40,7 +40,7 @@ public class WallsSpawner : MonoBehaviour
         {
             int getWalls = CountWalls();
 
-            if(getWalls <= 0)
+            if(getWalls <= 0) // lo malo que no llega a cero otra vez 
             {
                 SpawnMovWalls();
             }
@@ -82,6 +82,11 @@ public class WallsSpawner : MonoBehaviour
         Debug.Log(wallsCounted);
         return wallsCounted;
 ;
+    }
+    
+    private void DestroySpawnedWalls()
+    {
+        //Cuando los wall quedan fuera de la pantalla desaparecen
     }
 
     private void SpawnMovWalls ()
