@@ -7,17 +7,6 @@ public class Waypoints : MonoBehaviour
     public Color rayColor = Color.black;
     public List<Transform> wayPoints = new List<Transform>();
     Transform[] theArray;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnDrawGizmos()
     {
         Gizmos.color = rayColor;
