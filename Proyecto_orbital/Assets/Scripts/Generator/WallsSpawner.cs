@@ -12,56 +12,59 @@ public class WallsSpawner : MonoBehaviour
     private int indexWalls = 0;
     private int wallsCounted;
     public GameObject Player;
-
+    //int timeAdd
+    public float timeToWait;
     private string nameWall;
 
     float cdTimer = 2f;
     void Start()
     {
         lastPlayerPosition = Player.transform.position;
-        StartCoroutine(WallSpawnIn());
+        //StartCoroutine(WallSpawnIn());
 
     }
-    void Update()
+    void FixedUpdate()
     {
         currentPlayerPosition = Player.transform.position.z;
         CountWalls();
-        if (cdTimer > 0)
-        {
-            cdTimer -= Time.deltaTime;
-        }
+        Debug.Log(Time.time);
+        //if (cdTimer > 0)
+        //{
+        //    cdTimer -= Time.deltaTime;
+        //}
+        //WallSpawnIn();
     }
 
-    IEnumerator WallSpawnIn ()
+    private void WallSpawnIn ()
     {
-            
+        bool wallsSpawned = false;
 
-        while (true)
+        while (!wallsSpawned)
         {
             int getWalls = CountWalls();
 
-            if(getWalls <= 0) // lo malo que no llega a cero otra vez 
+            if(Time.time > timeToWait) // lo malo que no llega a cero otra vez 
             {
                 SpawnMovWalls();
+                timeToWait = timeToWait + 2f;
             }
             
-            if(getWalls > 0)
+            if(Time.time > timeToWait)
             {
-                if (cdTimer <= 0)
-                {
-                    SpawnOrbitWall();
-                }
-                
+                SpawnOrbitWall();
+                timeToWait = timeToWait + 3f;
             }
 
-            if(getWalls == 3)
+            if(Time.time > timeToWait)
             {
                 SpawnRotateWall(); //Aparecen cerca de la linea
+                timeToWait = timeToWait + 5f;
             }
 
-            if(getWalls > 5)
+            if(Time.time > timeToWait)
             {
                 SpawnStaticWalls(); //
+                timeToWait = timeToWait + 3f;
             }
 
 
@@ -69,10 +72,15 @@ public class WallsSpawner : MonoBehaviour
 
             //SpawnTapWalls(); Igual que Static Wall
 
-            yield return new WaitForSeconds(timeCurrentPlayerPosition);
+            //yield return new WaitForSeconds(timeCurrentPlayerPosition);
 
             // destruye los muros creados cuando pase la bola.
             // cuando se van los muros vienen los nuevos.
+            // cuando muere el player return false para parar el loop
+            if (getWalls == 50)
+            {
+                wallsSpawned = true;
+            }
         }
     }
 
