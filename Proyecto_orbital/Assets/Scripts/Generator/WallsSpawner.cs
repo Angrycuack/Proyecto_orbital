@@ -106,11 +106,11 @@ public class WallsSpawner : MonoBehaviour
         float randX = Random.Range(-10f, 10f);
         float randZ = Random.Range(5f, 10f);
         Vector3 pointsToSpawnWall = new Vector3(randX, 0, currentPlayerPosition + randZ);
-        if (indexWalls <= 1)
-        {
-            Instantiate(wallsArray[0], pointsToSpawnWall, Quaternion.identity);
-            Debug.Log(wallsArray[0]);
-        }
+
+        
+        Instantiate(wallsArray[0], pointsToSpawnWall, Quaternion.identity);
+        Debug.Log(wallsArray[0]);
+        
 
         //timeCurrentPlayerPosition = currentPlayerPosition + Random.Range(1f, 10f); // Posicion ahora de la bola añadimos unos segundos para el cooldown
         //if (timeCurrentPlayerPosition > currentPlayerPosition)
@@ -125,11 +125,11 @@ public class WallsSpawner : MonoBehaviour
         float randX = Random.Range(-10f, 10f);
         float randZ = Random.Range(5f, 10f);
         Vector3 pointsToSpawnWall = new Vector3(randX, 0, currentPlayerPosition + randZ);
-        if (indexWalls <= 1)
-        {
-            Instantiate(wallsArray[1], pointsToSpawnWall, Quaternion.identity);
-            Debug.Log(wallsArray[1]);
-        }
+
+        
+        Instantiate(wallsArray[1], pointsToSpawnWall, Quaternion.identity);
+        Debug.Log(wallsArray[1]);
+        
         //timeCurrentPlayerPosition = currentPlayerPosition + Random.Range(1f, 10f);
     }
 
@@ -138,11 +138,9 @@ public class WallsSpawner : MonoBehaviour
         float randX = Random.Range(-5f, 5f); // Genera muros de izq a der
         float randZ = Random.Range(5f, 10f); 
         Vector3 pointsToSpawnWall = new Vector3(randX, 0, currentPlayerPosition + randZ);
-        if (indexWalls <= 1)
-        {
-            Instantiate(wallsArray[2], pointsToSpawnWall, Quaternion.identity);
-            Debug.Log(wallsArray[2]);
-        }
+        
+        Instantiate(wallsArray[2], pointsToSpawnWall, Quaternion.identity);
+        Debug.Log(wallsArray[2]);
         //timeCurrentPlayerPosition = currentPlayerPosition * Random.Range(1f, 10f);
     }
 
