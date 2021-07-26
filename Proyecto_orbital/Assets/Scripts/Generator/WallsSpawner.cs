@@ -20,14 +20,14 @@ public class WallsSpawner : MonoBehaviour
     void Start()
     {
         lastPlayerPosition = Player.transform.position;
-        //StartCoroutine(WallSpawnIn());
+        StartCoroutine(WallSpawnIn());
 
     }
     void FixedUpdate()
     {
         currentPlayerPosition = Player.transform.position.z;
         CountWalls();
-        Debug.Log(Time.time);
+        //Debug.Log(Time.time);
         //if (cdTimer > 0)
         //{
         //    cdTimer -= Time.deltaTime;
@@ -35,33 +35,34 @@ public class WallsSpawner : MonoBehaviour
         //WallSpawnIn();
     }
 
-    private void WallSpawnIn ()
+    IEnumerator WallSpawnIn ()
     {
         bool wallsSpawned = false;
 
+        Debug.Log("Hay un muro" + wallsSpawned);
         while (!wallsSpawned)
         {
             int getWalls = CountWalls();
 
-            if(Time.time > timeToWait) // lo malo que no llega a cero otra vez 
+            if(Time.time > timeToWait)
             {
                 SpawnMovWalls();
                 timeToWait = timeToWait + 2f;
             }
             
-            if(Time.time > timeToWait)
+            if(Time.time > timeToWait+1) // Problema no llega en esta parte
             {
                 SpawnOrbitWall();
                 timeToWait = timeToWait + 3f;
             }
 
-            if(Time.time > timeToWait)
+            if(Time.time > timeToWait+3)
             {
                 SpawnRotateWall(); //Aparecen cerca de la linea
-                timeToWait = timeToWait + 5f;
+                timeToWait = timeToWait + 2f;
             }
 
-            if(Time.time > timeToWait)
+            if(Time.time > timeToWait+4)
             {
                 SpawnStaticWalls(); //
                 timeToWait = timeToWait + 3f;
@@ -81,6 +82,8 @@ public class WallsSpawner : MonoBehaviour
             {
                 wallsSpawned = true;
             }
+            yield return null;
+            Debug.Log("Han aparecido todas " + wallsSpawned);
         }
     }
 
@@ -108,12 +111,12 @@ public class WallsSpawner : MonoBehaviour
             Debug.Log(wallsArray[0]);
         }
 
-        timeCurrentPlayerPosition = currentPlayerPosition + Random.Range(1f, 10f); // Posicion ahora de la bola añadimos unos segundos para el cooldown
-        if (timeCurrentPlayerPosition > currentPlayerPosition)
-        {
-            Instantiate(wallsArray[0], pointsToSpawnWall, Quaternion.identity);
-            Debug.Log(wallsArray[0]);
-        }
+        //timeCurrentPlayerPosition = currentPlayerPosition + Random.Range(1f, 10f); // Posicion ahora de la bola añadimos unos segundos para el cooldown
+        //if (timeCurrentPlayerPosition > currentPlayerPosition)
+        //{
+        //    Instantiate(wallsArray[0], pointsToSpawnWall, Quaternion.identity);
+        //    Debug.Log(wallsArray[0]);
+        //}
     }
 
     private void SpawnOrbitWall ()
@@ -126,7 +129,7 @@ public class WallsSpawner : MonoBehaviour
             Instantiate(wallsArray[1], pointsToSpawnWall, Quaternion.identity);
             Debug.Log(wallsArray[1]);
         }
-        timeCurrentPlayerPosition = currentPlayerPosition + Random.Range(1f, 10f);
+        //timeCurrentPlayerPosition = currentPlayerPosition + Random.Range(1f, 10f);
     }
 
     private void SpawnRotateWall()
@@ -139,7 +142,7 @@ public class WallsSpawner : MonoBehaviour
             Instantiate(wallsArray[2], pointsToSpawnWall, Quaternion.identity);
             Debug.Log(wallsArray[2]);
         }
-        timeCurrentPlayerPosition = currentPlayerPosition * Random.Range(1f, 10f);
+        //timeCurrentPlayerPosition = currentPlayerPosition * Random.Range(1f, 10f);
     }
 
     private void SpawnStaticWalls()
@@ -152,12 +155,12 @@ public class WallsSpawner : MonoBehaviour
             Instantiate(wallsArray[3], pointsToSpawnWall, Quaternion.identity);
             Debug.Log(wallsArray[3]);
         }
-        timeCurrentPlayerPosition = currentPlayerPosition * Random.Range(1f, 20f);
-        if (timeCurrentPlayerPosition > currentPlayerPosition)
-        {
-            Instantiate(wallsArray[3], pointsToSpawnWall, Quaternion.identity);
-            Debug.Log(wallsArray[3]);
-        }
+        //timeCurrentPlayerPosition = currentPlayerPosition * Random.Range(1f, 20f);
+        //if (timeCurrentPlayerPosition > currentPlayerPosition)
+        //{
+        //    Instantiate(wallsArray[3], pointsToSpawnWall, Quaternion.identity);
+        //    Debug.Log(wallsArray[3]);
+        //}
     }
 
     private void SpawnTapWalls()
@@ -170,11 +173,11 @@ public class WallsSpawner : MonoBehaviour
             Instantiate(wallsArray[4], pointsToSpawnWall, Quaternion.identity);
             Debug.Log(wallsArray[4]);
         }
-        timeCurrentPlayerPosition = currentPlayerPosition * Random.Range(1f, 20f);
-        if (timeCurrentPlayerPosition > currentPlayerPosition)
-        {
-            Instantiate(wallsArray[4], pointsToSpawnWall, Quaternion.identity);
-            Debug.Log(wallsArray[4]);
-        }
+        //timeCurrentPlayerPosition = currentPlayerPosition * Random.Range(1f, 20f);
+        //if (timeCurrentPlayerPosition > currentPlayerPosition)
+        //{
+        //    Instantiate(wallsArray[4], pointsToSpawnWall, Quaternion.identity);
+        //    Debug.Log(wallsArray[4]);
+        //}
     }
 }
