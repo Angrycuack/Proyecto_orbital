@@ -5,7 +5,7 @@ using UnityEngine;
 public class CentralSphereMovement : MonoBehaviour
 {
     //Variables de velocidad y posición para la instanciación de nuevos orbitales.
-    public float speed;
+    //public float speed;
     private Vector3 spawnPosition;
 
     //Variables de posiciones y prefabs de objetos.
@@ -20,7 +20,7 @@ public class CentralSphereMovement : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(Vector3.forward*speed*Time.deltaTime);
+        //transform.Translate(Vector3.forward*speed*Time.deltaTime);
     }
 
     /// <summary>
