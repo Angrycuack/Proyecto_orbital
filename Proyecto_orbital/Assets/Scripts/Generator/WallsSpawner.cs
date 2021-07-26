@@ -68,12 +68,13 @@ public class WallsSpawner : MonoBehaviour
                 timeToWait = timeToWait + 3f;
             }
 
+            if (Time.time > timeToWait + 5)
+            {
+                SpawnTapWalls(); //
+                timeToWait = timeToWait + 3f;
+            }
 
 
-
-            //SpawnTapWalls(); Igual que Static Wall
-
-            //yield return new WaitForSeconds(timeCurrentPlayerPosition);
 
             // destruye los muros creados cuando pase la bola.
             // cuando se van los muros vienen los nuevos.

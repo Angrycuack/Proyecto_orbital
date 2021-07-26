@@ -45,7 +45,7 @@ public class PlayerMoves : MonoBehaviour
 
     void FixedUpdate()
     {
-        //// probar poner en un array los direcciones
+        //// probar en un array las direcciones
         //// y llamarlo con loop
         player_lastPosition = transform.position;
         //// Debug.Log(player_lastPosition);
