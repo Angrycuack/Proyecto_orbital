@@ -17,10 +17,10 @@ public class HealthPlayer : MonoBehaviour
             Destroy(this.gameObject);
             GameController.instance.AddOrbit(false);
         }
-        if (collision.gameObject.CompareTag("MultiplePU"))
+        if (collision.gameObject.CompareTag("PowerUp"))
         {
-            _player.PowerUp();
-            Destroy(collision.gameObject);
+            _player.PowerUp(collision.gameObject.name);
+            Destroy(collision.gameObject); 
         }
     }
 }

@@ -26,9 +26,21 @@ public class CentralSphereMovement : MonoBehaviour
     /// <summary>
     /// Método que se encarga de iniciar las corrutinas de Power Up.
     /// </summary>
-    public void PowerUp()
+    public void PowerUp(string power)
     {
-        StartCoroutine(MultipleBall(2));
+        switch (power)
+        {
+            case "MultiplePU":
+                StartCoroutine(MultipleBall(2));
+                break;
+            case "SpeedPU":
+                orbital.GetComponent<OrbitalMovement>().SpeedUp(true);
+                break;
+            case "FrostPU":
+                orbital.GetComponent<OrbitalMovement>().SpeedUp(false);
+                break;
+        }
+        
     }
 
     /// <summary>
