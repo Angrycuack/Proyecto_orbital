@@ -13,9 +13,11 @@ public class WallsSpawner : MonoBehaviour
     private int wallsCounted;
     public GameObject Player;
 
-    private string nameWall;
+    [SerializeField] private float whenToSpawnWall;
+    private float timer;
+    //float cdTimer = 2f;
 
-    float cdTimer = 2f;
+    private int getWallsCount;
     void Start()
     {
         lastPlayerPosition = Player.transform.position;
@@ -25,148 +27,135 @@ public class WallsSpawner : MonoBehaviour
     void Update()
     {
         currentPlayerPosition = Player.transform.position.z;
-        CountWalls();
-        if (cdTimer > 0)
-        {
-            cdTimer -= Time.deltaTime;
-        }
+        //Debug.Log("Posicion del jugador " + currentPlayerPosition);
+        getWallsCount = CountWalls();
+        //if (cdTimer > 0)
+        //{
+        //    cdTimer -= Time.deltaTime;
+        //}
+
+        timer = Time.time;
+        Debug.Log("Time: " + timer);
+    }
+    void FixedUpdate ()
+    {
+        DestroySpawnedWalls();
     }
 
     IEnumerator WallSpawnIn ()
     {
-            
-
-        while (true)
+        
+        bool WallSpawned = false;
+        while (!WallSpawned)
         {
-            int getWalls = CountWalls();
-
-            if(getWalls <= 0) // lo malo que no llega a cero otra vez 
+            if (getWallsCount <= 10)
             {
-                SpawnMovWalls();
+
+                    SpawnMovWalls();
+                                
+            }
+            if (getWallsCount <= 10)
+            {
+                SpawnOrbitWall();
             }
             
-            if(getWalls > 0)
-            {
-                if (cdTimer <= 0)
-                {
-                    SpawnOrbitWall();
-                }
-                
-            }
 
-            if(getWalls == 3)
-            {
-                SpawnRotateWall(); //Aparecen cerca de la linea
-            }
+            //SpawnRotateWall();
 
-            if(getWalls > 5)
-            {
-                SpawnStaticWalls(); //
-            }
+            //SpawnStaticWalls();
 
-
-
-
-            //SpawnTapWalls(); Igual que Static Wall
+            //SpawnTapWalls();
 
             yield return new WaitForSeconds(timeCurrentPlayerPosition);
 
             // destruye los muros creados cuando pase la bola.
             // cuando se van los muros vienen los nuevos.
+            int getWalls = getWallsCount;
+            Debug.Log(getWalls);
+            if (getWalls == 30)
+            {
+                WallSpawned = true;
+            }
+
         }
+
     }
 
     private int CountWalls()
     {
         wallsCounted = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        Debug.Log(wallsCounted);
+        // Debug.Log(wallsCounted);
         return wallsCounted;
 ;
     }
     
     private void DestroySpawnedWalls()
     {
-        //Cuando los wall quedan fuera de la pantalla desaparecen
+        if (getWallsCount == 1)
+        {
+            Debug.Log("Destroy one wall");
+        }
     }
 
     private void SpawnMovWalls ()
     {
-        float randX = Random.Range(-10f, 10f);
-        float randZ = Random.Range(5f, 10f);
-        Vector3 pointsToSpawnWall = new Vector3(randX, 0, currentPlayerPosition + randZ);
-        if (indexWalls <= 1)
-        {
-            Instantiate(wallsArray[0], pointsToSpawnWall, Quaternion.identity);
-            Debug.Log(wallsArray[0]);
-        }
+        float randX = Random.Range(-5f, 5f);
+        Vector3 pointsToSpawnWall = new Vector3(randX, 0, currentPlayerPosition);
 
-        timeCurrentPlayerPosition = currentPlayerPosition + Random.Range(1f, 10f); // Posicion ahora de la bola añadimos unos segundos para el cooldown
-        if (timeCurrentPlayerPosition > currentPlayerPosition)
-        {
-            Instantiate(wallsArray[0], pointsToSpawnWall, Quaternion.identity);
-            Debug.Log(wallsArray[0]);
-        }
+        Instantiate(wallsArray[0], pointsToSpawnWall, Quaternion.identity);
+        Debug.Log(wallsArray[0]);
+
+        timeCurrentPlayerPosition = currentPlayerPosition + Random.Range(0.5f, 2f); // Posicion ahora de la bola añadimos unos segundos para el cooldown
+
     }
 
     private void SpawnOrbitWall ()
     {
-        float randX = Random.Range(-10f, 10f);
+        float randX = Random.Range(-5f, 5f);
         float randZ = Random.Range(5f, 10f);
-        Vector3 pointsToSpawnWall = new Vector3(randX, 0, currentPlayerPosition + randZ);
-        if (indexWalls <= 1)
-        {
-            Instantiate(wallsArray[1], pointsToSpawnWall, Quaternion.identity);
-            Debug.Log(wallsArray[1]);
-        }
-        timeCurrentPlayerPosition = currentPlayerPosition + Random.Range(1f, 10f);
+        Vector3 pointsToSpawnWall = new Vector3(randX, 0, currentPlayerPosition);
+
+        Instantiate(wallsArray[1], pointsToSpawnWall, Quaternion.identity);
+        Debug.Log(wallsArray[1]);
+  
+        timeCurrentPlayerPosition = currentPlayerPosition + Random.Range(0.5f, 2f);
     }
 
     private void SpawnRotateWall()
     {
         float randX = Random.Range(-5f, 5f); // Genera muros de izq a der
         float randZ = Random.Range(5f, 10f); 
-        Vector3 pointsToSpawnWall = new Vector3(randX, 0, currentPlayerPosition + randZ);
-        if (indexWalls <= 1)
-        {
-            Instantiate(wallsArray[2], pointsToSpawnWall, Quaternion.identity);
-            Debug.Log(wallsArray[2]);
-        }
-        timeCurrentPlayerPosition = currentPlayerPosition * Random.Range(1f, 10f);
+        Vector3 pointsToSpawnWall = new Vector3(randX, 0, currentPlayerPosition);
+
+        Instantiate(wallsArray[2], pointsToSpawnWall, Quaternion.identity);
+        Debug.Log(wallsArray[2]);
+
+        timeCurrentPlayerPosition = currentPlayerPosition * Random.Range(1f, 5f);
     }
 
     private void SpawnStaticWalls()
     {
         float randX = Random.Range(-10f, 10f);
         float randZ = Random.Range(5f, 10f);
-        Vector3 pointsToSpawnWall = new Vector3(randX, 0, currentPlayerPosition + randZ);
-        if (indexWalls <= 1)
-        {
-            Instantiate(wallsArray[3], pointsToSpawnWall, Quaternion.identity);
-            Debug.Log(wallsArray[3]);
-        }
-        timeCurrentPlayerPosition = currentPlayerPosition * Random.Range(1f, 20f);
-        if (timeCurrentPlayerPosition > currentPlayerPosition)
-        {
-            Instantiate(wallsArray[3], pointsToSpawnWall, Quaternion.identity);
-            Debug.Log(wallsArray[3]);
-        }
+        Vector3 pointsToSpawnWall = new Vector3(randX, 0, currentPlayerPosition);
+
+       
+        Instantiate(wallsArray[3], pointsToSpawnWall, Quaternion.identity);
+        Debug.Log(wallsArray[3]);
+        
+        timeCurrentPlayerPosition = currentPlayerPosition * Random.Range(1f, 5f);
     }
 
     private void SpawnTapWalls()
     {
         float randX = Random.Range(-10f, 10f);
         float randZ = Random.Range(5f, 10f);
-        Vector3 pointsToSpawnWall = new Vector3(randX, 0, currentPlayerPosition + randZ);
-        if (indexWalls <= 1)
-        {
-            Instantiate(wallsArray[4], pointsToSpawnWall, Quaternion.identity);
-            Debug.Log(wallsArray[4]);
-        }
-        timeCurrentPlayerPosition = currentPlayerPosition * Random.Range(1f, 20f);
-        if (timeCurrentPlayerPosition > currentPlayerPosition)
-        {
-            Instantiate(wallsArray[4], pointsToSpawnWall, Quaternion.identity);
-            Debug.Log(wallsArray[4]);
-        }
+        Vector3 pointsToSpawnWall = new Vector3(randX, 0, currentPlayerPosition);
+
+        Instantiate(wallsArray[4], pointsToSpawnWall, Quaternion.identity);
+        Debug.Log(wallsArray[4]);
+       
+        timeCurrentPlayerPosition = currentPlayerPosition * Random.Range(1f, 5f);
+
     }
 }
