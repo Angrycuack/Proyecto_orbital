@@ -5,22 +5,47 @@ using UnityEngine;
 public class HealthPlayer : MonoBehaviour
 {
     private CentralSphereMovement _player;
+    public static bool invencible;
 
     private void Start()
     {
         _player = GameObject.Find("Player").GetComponent<CentralSphereMovement>();
+        invencible = false;
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(this.gameObject);
-            GameController.instance.AddOrbit(false);
+            if (!invencible)
+            {
+                DestroyOrbit();
+            }
+            else
+            {
+                Destroy(collision.gameObject);
+            }
+        
         }
         if (collision.gameObject.CompareTag("PowerUp"))
         {
             _player.PowerUp(collision.gameObject.name);
             Destroy(collision.gameObject); 
         }
+        if (collision.gameObject.CompareTag("IronEnemy"))
+        {
+            DestroyOrbit();
+        }
+    }
+
+    public void Invencible(bool state)
+    {
+        Debug.Log("Invencible: " + state);
+        invencible = state;
+    }
+
+    private void DestroyOrbit()
+    {
+        Destroy(this.gameObject);
+        GameController.instance.AddOrbit(false);
     }
 }

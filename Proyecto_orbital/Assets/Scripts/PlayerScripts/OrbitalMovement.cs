@@ -57,4 +57,12 @@ public class OrbitalMovement : MonoBehaviour
         countDown = 10f;
         timer = false;
     }
+    /// <summary>
+    /// Método llamado cuando se toma el PowerUp Ghost y que desactiva o activa el collider.
+    /// </summary>
+    /// <param name="state">Activar o desactivar collider.</param>
+    public void RemoveCollider(bool state)
+    {
+        GetComponent<SphereCollider>().enabled = state;
+    }
 }

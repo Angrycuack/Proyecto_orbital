@@ -11,6 +11,7 @@ public class CentralSphereMovement : MonoBehaviour
     //Variables de posiciones y prefabs de objetos.
     [SerializeField] private GameObject centralSphere;
     [SerializeField] private GameObject orbital;
+    [SerializeField] private GameObject[] actualOrbitInScene;
 
     private void Start()
     {
@@ -28,6 +29,7 @@ public class CentralSphereMovement : MonoBehaviour
     /// </summary>
     public void PowerUp(string power)
     {
+        actualOrbitInScene = GameObject.FindGameObjectsWithTag("Orbital");
         switch (power)
         {
             case "MultiplePU":
@@ -38,6 +40,15 @@ public class CentralSphereMovement : MonoBehaviour
                 break;
             case "FrostPU":
                 orbital.GetComponent<OrbitalMovement>().SpeedUp(false);
+                break;
+            case "GhostPU":
+                StartCoroutine(GhoshForm());
+                break;
+            case "DestructionPU":
+                StartCoroutine(DestructionForm());
+                break;
+            case "NearPU":
+                StartCoroutine(NearForm());
                 break;
         }
         
@@ -56,5 +67,44 @@ public class CentralSphereMovement : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(1f,3f));
         }
         
+    }
+    /// <summary>
+    /// Corrutina que desactiva el collider del orbital para que pueda pasar por los muros sin ser dañado.
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator GhoshForm()
+    {
+        for (int i = 0; i < actualOrbitInScene.Length; i++)
+        {
+            actualOrbitInScene[i].GetComponent<OrbitalMovement>().RemoveCollider(false);
+        }
+        yield return new WaitForSeconds(10f);
+        for (int i = 0; i < actualOrbitInScene.Length; i++)
+        {
+            actualOrbitInScene[i].GetComponent<OrbitalMovement>().RemoveCollider(true);
+        }
+    }
+    /// <summary>
+    /// Corrutina que activa una variable que permite destruir muros durante un tiempo.
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator DestructionForm()
+    {
+        orbital.GetComponent<HealthPlayer>().Invencible(true);
+        yield return new WaitForSeconds(10f);
+        orbital.GetComponent<HealthPlayer>().Invencible(false);
+    }
+
+    IEnumerator NearForm()
+    {
+        for(int i= 0; i<actualOrbitInScene.Length; i++)
+        {
+            actualOrbitInScene[i].transform.position = Vector3.MoveTowards(actualOrbitInScene[i].transform.position, centralSphere.transform.position, 2f);
+        }
+        yield return new WaitForSeconds(10f);
+        for (int i = 0; i < actualOrbitInScene.Length; i++)
+        {
+            actualOrbitInScene[i].transform.position = Vector3.MoveTowards(actualOrbitInScene[i].transform.position, centralSphere.transform.position, -2f);
+        }
     }
 }

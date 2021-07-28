@@ -7,7 +7,8 @@ TagManager:
   - Enemy
   - GameManager
   - PowerUp
-  - MultiplePU
+  - Orbital
+  - IronEnemy
   layers:
   - Default
   - TransparentFX
