@@ -94,7 +94,10 @@ public class CentralSphereMovement : MonoBehaviour
         yield return new WaitForSeconds(10f);
         orbital.GetComponent<HealthPlayer>().Invencible(false);
     }
-
+    /// <summary>
+    /// Corrutina que permite que el orbital se ponga más cerca de la esfera central durante un periodo de tiempo.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator NearForm()
     {
         for(int i= 0; i<actualOrbitInScene.Length; i++)

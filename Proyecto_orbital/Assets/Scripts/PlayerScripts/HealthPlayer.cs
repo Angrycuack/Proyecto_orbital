@@ -23,13 +23,14 @@ public class HealthPlayer : MonoBehaviour
             else
             {
                 Destroy(collision.gameObject);
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraOffSet>().Shake();
             }
         
         }
         if (collision.gameObject.CompareTag("PowerUp"))
         {
             _player.PowerUp(collision.gameObject.name);
-            Destroy(collision.gameObject); 
+            Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("IronEnemy"))
         {
