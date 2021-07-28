@@ -960,14 +960,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe20ee8923ce58f41a0e980af37325be, type: 3}
+  m_Script: {fileID: 11500000, guid: 35861bd39e0aef442adaf3b7c3bf23da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPlayer: {fileID: 99380094}
-  cameraPosition: {x: 0, y: 15, z: -4}
-  smoothMode: 0.135
-  lookAtPlayer: 0
-  cameraRotation: 0
+  yOffset: 4
+  zOffset: 1.5
+  target: {fileID: 99380094}
+  targetPosition: {x: 0, y: 0, z: 0}
+  cameraSpeed: 0
+  shakeAmount: 0
+  shakeDuration: 0
 --- !u!1 &1055465962
 GameObject:
   m_ObjectHideFlags: 0
