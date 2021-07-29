@@ -9,7 +9,7 @@ public class WallsSpawner : MonoBehaviour
     private float currentPlayerPosition;
     private Vector3 lastPlayerPosition;
     private float pointsToSpawnWall;
-    private int indexWalls = 0;
+    // private int indexWalls = 0;
     private int wallsCounted;
     public GameObject Player;
 
@@ -35,7 +35,7 @@ public class WallsSpawner : MonoBehaviour
         //}
 
         timer = Time.time;
-        Debug.Log("Time: " + timer);
+        // Debug.Log("Time: " + timer);
     }
     void FixedUpdate ()
     {
@@ -93,7 +93,7 @@ public class WallsSpawner : MonoBehaviour
     {
         if (getWallsCount == 1)
         {
-            Debug.Log("Destroy one wall");
+            //Debug.Log("Destroy one wall");
         }
     }
 
@@ -103,7 +103,7 @@ public class WallsSpawner : MonoBehaviour
         Vector3 pointsToSpawnWall = new Vector3(randX, 0, currentPlayerPosition);
 
         Instantiate(wallsArray[0], pointsToSpawnWall, Quaternion.identity);
-        Debug.Log(wallsArray[0]);
+        //Debug.Log(wallsArray[0]);
 
         timeCurrentPlayerPosition = currentPlayerPosition + Random.Range(0.5f, 2f); // Posicion ahora de la bola añadimos unos segundos para el cooldown
 
@@ -116,7 +116,7 @@ public class WallsSpawner : MonoBehaviour
         Vector3 pointsToSpawnWall = new Vector3(randX, 0, currentPlayerPosition);
 
         Instantiate(wallsArray[1], pointsToSpawnWall, Quaternion.identity);
-        Debug.Log(wallsArray[1]);
+        //Debug.Log(wallsArray[1]);
   
         timeCurrentPlayerPosition = currentPlayerPosition + Random.Range(0.5f, 2f);
     }

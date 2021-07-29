@@ -36,7 +36,7 @@ public class OrbitalMovement : MonoBehaviour
     private void FixedUpdate()
     {
         transform.RotateAround(centralSphere.transform.position, direction, speed * Time.deltaTime);
-        Debug.Log(speed);
+        // Debug.Log(speed);
     }
     /// <summary>
     /// Método que se encarga de aumentar o disminuar la velocidad del orbital.

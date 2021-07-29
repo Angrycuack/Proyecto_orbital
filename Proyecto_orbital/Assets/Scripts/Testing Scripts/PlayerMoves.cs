@@ -50,9 +50,9 @@ public class PlayerMoves : MonoBehaviour
         player_lastPosition = transform.position;
         //// Debug.Log(player_lastPosition);
         distance = Vector3.Distance(player_currentPosition, transform.position);
-        Debug.Log("The distance " + distance);
+        //Debug.Log("The distance " + distance);
         Vector3 target = points.position;
-        Debug.Log("Where is the target " + target);
+        //Debug.Log("Where is the target " + target);
         transform.position = Vector3.MoveTowards(player_lastPosition, Vector3.Lerp(player_lastPosition, target, t), speed);
 
 

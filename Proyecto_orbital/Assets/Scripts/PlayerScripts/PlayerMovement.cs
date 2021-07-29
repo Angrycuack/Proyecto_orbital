@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 last_position;
     Vector3 current_position;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         wayPointsToFollow = GameObject.Find(wayPointsName).GetComponent<Waypoints>();

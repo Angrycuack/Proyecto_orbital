@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LineRenderer : MonoBehaviour
+public class LineController : MonoBehaviour
 {
     private LineRenderer lineRenderer;
 
@@ -10,27 +10,36 @@ public class LineRenderer : MonoBehaviour
     [SerializeField]
     private float animationDuration = 5f;
 
-    
+
     void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
-        // probando de cara a la camara
         
+
 
         StartCoroutine(AnimateTheLine());
 
     }
     void Update()
     {
-        
+
     }
 
     private IEnumerator AnimateTheLine()
     {
         float startTime = Time.time;
 
-        
+        Vector3 startPosition = lineRenderer.GetPosition(0);
+        Vector3 endPosition = lineRenderer.GetPosition(1);
 
-        yield return null;
+        Vector3 pos = startPosition;
+        while(pos != endPosition)
+        {
+            float t = (Time.time - startTime) / animationDuration;
+            pos = Vector3.Lerp(startPosition, endPosition, t);
+            yield return null;
+        }
     }
+
+        
 }
