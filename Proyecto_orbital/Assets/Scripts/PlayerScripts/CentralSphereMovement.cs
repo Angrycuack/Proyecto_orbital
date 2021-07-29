@@ -110,4 +110,9 @@ public class CentralSphereMovement : MonoBehaviour
             actualOrbitInScene[i].transform.position = Vector3.MoveTowards(actualOrbitInScene[i].transform.position, centralSphere.transform.position, -2f);
         }
     }
+
+    public void FadeOutEffect()
+    {
+        centralSphere.GetComponent<MeshRenderer>().enabled = false;
+    }
 }

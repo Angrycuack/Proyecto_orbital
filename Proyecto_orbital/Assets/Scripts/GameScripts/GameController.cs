@@ -48,6 +48,8 @@ public class GameController : MonoBehaviour
     {
         if (orbitNumber <= 0)
         {
+            CentralSphereMovement fadeOut = GameObject.FindGameObjectWithTag("Player").GetComponent<CentralSphereMovement>();
+            fadeOut.FadeOutEffect();
             Time.timeScale = 0;
             gameOverPanel.SetActive(true);
             Debug.Log("Game Over");
@@ -57,6 +59,6 @@ public class GameController : MonoBehaviour
     public void AddOrbit(bool add)
     {
         if (add) { orbitNumber++; }
-        else { orbitNumber--; GameOver();}
+        else { orbitNumber--; GameOver(); }
     }
 }
