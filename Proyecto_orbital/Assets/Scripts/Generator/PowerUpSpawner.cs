@@ -65,20 +65,115 @@ public class PowerUpSpawner : MonoBehaviour
     void PowerUpsRecharger()
     {
         poolDestructionPU = new GameObject[sizeDestructionPU];
+        poolFrostPU = new GameObject[sizeFrostPU];
+        poolGhostPU = new GameObject[sizeGhostPU];
+        poolMultiplePU = new GameObject[sizeMultiplePU];
+        poolNearPU = new GameObject[sizeNearPU];
+        poolSpeedPU = new GameObject[sizeSpeedPU];
 
-        for(int i = 0; i < poolDestructionPU.Length; i++)
+        if(sizeDestructionPU != 0)
         {
-            float posZ = targetEndPosition.z;
-            
-            float randomPosition = Random.Range(0, posZ);
-            if(i < sizeDestructionPU)
+            for (int i = 0; i < poolDestructionPU.Length; i++)
             {
-                poolDestructionPU[i] = Instantiate(DestructionPU, new Vector3(0, 0, randomPosition), Quaternion.identity);
-                poolDestructionPU[i].SetActive(true);
+                float posZ = targetEndPosition.z;
+
+                float randomPosition = Random.Range(0, posZ-5);
+                if (i < sizeDestructionPU)
+                {
+                    poolDestructionPU[i] = Instantiate(DestructionPU, new Vector3(0, 0, randomPosition), Quaternion.identity);
+                    poolDestructionPU[i].SetActive(true); // Cambiar a false cuando se implementa
+                }
+
+
             }
-            
-            
         }
+
+        if (sizeFrostPU != 0)
+        {
+            for (int i = 0; i < poolFrostPU.Length; i++)
+            {
+                float posZ = targetEndPosition.z;
+
+                float randomPosition = Random.Range(0, posZ-5);
+                float randomizedX = Random.Range(-5f, 5f);
+                if (i < sizeFrostPU)
+                {
+                    poolFrostPU[i] = Instantiate(FrostPU, new Vector3(randomizedX, 0, randomPosition), Quaternion.identity);
+                    poolFrostPU[i].SetActive(true);
+                }
+
+
+            }
+        }
+
+        if (sizeGhostPU != 0)
+        {
+            for (int i = 0; i < poolGhostPU.Length; i++)
+            {
+                float posZ = targetEndPosition.z; // eje Z
+                float randomizedX = Random.Range(-10f, 10f); // Eje X 
+                float randomPosition = Random.Range(0, posZ-5);
+                if (i < sizeGhostPU)
+                {
+                    poolGhostPU[i] = Instantiate(GhostPU, new Vector3(randomizedX, 0, randomPosition), Quaternion.identity);
+                    poolGhostPU[i].SetActive(true);
+                }
+
+
+            }
+        }
+
+        if (sizeMultiplePU != 0)
+        {
+            for (int i = 0; i < poolMultiplePU.Length; i++)
+            {
+                float posZ = targetEndPosition.z;
+                float randomizedX = Random.Range(-10f, 10f); // Eje X 
+                float randomPosition = Random.Range(0, posZ-5);
+                if (i < sizeMultiplePU)
+                {
+                    poolMultiplePU[i] = Instantiate(MultiplePU, new Vector3(randomizedX, 0, randomPosition), Quaternion.identity);
+                    poolMultiplePU[i].SetActive(true); // Cambiar a false cuando se implementa
+                }
+
+
+            }
+        }
+
+        if (sizeNearPU != 0)
+        {
+            for (int i = 0; i < poolNearPU.Length; i++)
+            {
+                float posZ = targetEndPosition.z;
+                float randomizedX = Random.Range(-10f, 10f); // Eje X 
+                float randomPosition = Random.Range(0, posZ);
+                if (i < sizeNearPU)
+                {
+                    poolNearPU[i] = Instantiate(NearPU, new Vector3(randomizedX, 0, randomPosition), Quaternion.identity);
+                    poolNearPU[i].SetActive(true); // Cambiar a false cuando se implementa
+                }
+
+
+            }
+        }
+
+        if (sizeSpeedPU != 0)
+        {
+            for (int i = 0; i < poolSpeedPU.Length; i++)
+            {
+                float posZ = targetEndPosition.z;
+                float randomizedX = Random.Range(-10f, 10f); // Eje X 
+                float randomPosition = Random.Range(0, posZ);
+                if (i < sizeSpeedPU)
+                {
+                    poolSpeedPU[i] = Instantiate(SpeedPU, new Vector3(randomizedX, 0, randomPosition), Quaternion.identity);
+                    poolSpeedPU[i].SetActive(true); // Cambiar a false cuando se implementa
+                }
+
+
+            }
+        }
+
 
     }
 
