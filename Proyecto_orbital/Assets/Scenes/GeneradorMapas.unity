@@ -401,16 +401,48 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1547226654}
     - target: {fileID: 3104292920637151864, guid: 521273937de6dca4cb4ba6e2f00ca393, type: 3}
+      propertyPath: yOffset
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104292920637151864, guid: 521273937de6dca4cb4ba6e2f00ca393, type: 3}
       propertyPath: zOffset
-      value: -6
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104292920637151866, guid: 521273937de6dca4cb4ba6e2f00ca393, type: 3}
+      propertyPath: field of view
+      value: 50.92669
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104292920637151866, guid: 521273937de6dca4cb4ba6e2f00ca393, type: 3}
+      propertyPath: m_FocalLength
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104292920637151866, guid: 521273937de6dca4cb4ba6e2f00ca393, type: 3}
+      propertyPath: m_LensShift.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104292920637151866, guid: 521273937de6dca4cb4ba6e2f00ca393, type: 3}
+      propertyPath: m_LensShift.y
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3104292920637151866, guid: 521273937de6dca4cb4ba6e2f00ca393, type: 3}
       propertyPath: far clip plane
-      value: 100
+      value: 21.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104292920637151866, guid: 521273937de6dca4cb4ba6e2f00ca393, type: 3}
+      propertyPath: m_SensorSize.x
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104292920637151866, guid: 521273937de6dca4cb4ba6e2f00ca393, type: 3}
+      propertyPath: m_SensorSize.y
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3104292920637151866, guid: 521273937de6dca4cb4ba6e2f00ca393, type: 3}
       propertyPath: near clip plane
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104292920637151866, guid: 521273937de6dca4cb4ba6e2f00ca393, type: 3}
+      propertyPath: m_projectionMatrixMode
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3104292920637151867, guid: 521273937de6dca4cb4ba6e2f00ca393, type: 3}
       propertyPath: m_RootOrder
@@ -422,11 +454,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3104292920637151867, guid: 521273937de6dca4cb4ba6e2f00ca393, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 3104292920637151867, guid: 521273937de6dca4cb4ba6e2f00ca393, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.07
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3104292920637151867, guid: 521273937de6dca4cb4ba6e2f00ca393, type: 3}
       propertyPath: m_LocalRotation.w
