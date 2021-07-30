@@ -48,14 +48,8 @@ public class PowerUpSpawner : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Posicion del jugador" + playerPosition);
-        Debug.Log("Posicion target " + targetEndPosition);
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        // Debug.Log("Posicion del jugador" + playerPosition);
+        // Debug.Log("Posicion target " + targetEndPosition);
         
     }
 
