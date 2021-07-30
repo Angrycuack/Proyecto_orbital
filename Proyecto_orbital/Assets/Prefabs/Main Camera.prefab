@@ -136,3 +136,4 @@ MonoBehaviour:
   cameraSpeed: 2
   shakeAmount: 1
   shakeDuration: 0.5
+  inOutDuration: 0
