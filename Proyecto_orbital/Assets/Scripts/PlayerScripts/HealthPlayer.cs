@@ -9,7 +9,7 @@ public class HealthPlayer : MonoBehaviour
 
     private void Start()
     {
-        _player = GameObject.Find("Player").GetComponent<CentralSphereMovement>();
+        _player = GameObject.Find("Player").GetComponent<CentralSphereMovement>(); // En esta linea hay un error NULL
         invencible = false;
     }
     private void OnCollisionEnter(Collision collision)
