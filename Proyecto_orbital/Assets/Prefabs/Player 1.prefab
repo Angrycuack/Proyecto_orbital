@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8530d04bd490b374ebc3cf4c866daf68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
   centralSphere: {fileID: 5560393046212735079}
   orbital: {fileID: 2495530547294270877, guid: 882648625adae344a8fd946913cee8d2, type: 3}
+  actualOrbitInScene: []
 --- !u!1 &5560393046212735079
 GameObject:
   m_ObjectHideFlags: 0
