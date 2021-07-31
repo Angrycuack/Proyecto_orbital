@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class WallsSpawner : MonoBehaviour
 {
+    [Header ("Array para los prefabs de los muros")]
     public GameObject[] wallsArray;
+
     private float timeCurrentPlayerPosition;
     private float currentPlayerPosition;
+
     private Vector3 lastPlayerPosition;
     private float pointsToSpawnWall;
     // private int indexWalls = 0;
@@ -18,6 +21,11 @@ public class WallsSpawner : MonoBehaviour
     //float cdTimer = 2f;
 
     private int getWallsCount;
+
+    void Awake()
+    {
+        
+    }
     void Start()
     {
         lastPlayerPosition = Player.transform.position;
