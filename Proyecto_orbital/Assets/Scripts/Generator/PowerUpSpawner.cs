@@ -37,7 +37,7 @@ public class PowerUpSpawner : MonoBehaviour
     //private bool go = true;
     void Awake()
     {
-        player = GameObject.Find("Player 1");
+        player = GameObject.Find("Player");
         playerPosition = player.transform.position;
         target = GameObject.Find("Final WayPoints");
         targetEndPosition = target.transform.position;
@@ -48,14 +48,8 @@ public class PowerUpSpawner : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Posicion del jugador" + playerPosition);
-        Debug.Log("Posicion target " + targetEndPosition);
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        // Debug.Log("Posicion del jugador" + playerPosition);
+        // Debug.Log("Posicion target " + targetEndPosition);
         
     }
 
