@@ -9,6 +9,7 @@ TagManager:
   - PowerUp
   - Orbital
   - IronEnemy
+  - Coin
   layers:
   - Default
   - TransparentFX

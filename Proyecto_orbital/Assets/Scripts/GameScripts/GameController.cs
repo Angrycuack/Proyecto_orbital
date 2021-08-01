@@ -9,8 +9,10 @@ public class GameController : MonoBehaviour
     public static GameController instance;
 
     [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private TMP_Text coinText;
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject gameOverPanel;
+    
     private float score;
     public int orbitNumber;
 
@@ -18,11 +20,13 @@ public class GameController : MonoBehaviour
     {
         score = 0f;
         instance = this;
+        
     }
     private void Update()
     {
         score += Time.deltaTime;
         scoreText.text = "Score: " + score.ToString("F0");
+        coinText.text = "Coins: " + Coin.playerCoins.ToString();
     }
     /// <summary>
     /// Método que devuelve al jugador a la pantalla de Menú.
