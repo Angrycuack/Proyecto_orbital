@@ -15,7 +15,7 @@ public class PlayerMoves : MonoBehaviour
 
     // Player componente Transfor
     // Target Position
-    public Transform points;
+    public Transform Waypoint;
     // velocidad que va la esfera
     [SerializeField]
     public float speed = 0;
@@ -23,7 +23,8 @@ public class PlayerMoves : MonoBehaviour
     private float gotoLeft;
     private float gotoRight;
 
-    // 
+    // Score del jugador get from distance
+    public static float playerScore;
     Vector3 target;
     // ultima posicion de la esfera
     private Vector3 player_lastPosition;
@@ -51,11 +52,11 @@ public class PlayerMoves : MonoBehaviour
         //// Debug.Log(player_lastPosition);
         distance = Vector3.Distance(player_currentPosition, transform.position);
         //Debug.Log("The distance " + distance);
-        Vector3 target = points.position;
+        Vector3 target = Waypoint.position;
         //Debug.Log("Where is the target " + target);
         transform.position = Vector3.MoveTowards(player_lastPosition, Vector3.Lerp(player_lastPosition, target, t), speed);
 
-
+        playerScore = distance;
         //for (int i = 0; i <= 10; i++)
         //{
         //    if (player_lastPosition == target)
