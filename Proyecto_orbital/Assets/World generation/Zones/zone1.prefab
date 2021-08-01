@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2253011918671321200}
   - component: {fileID: 3123222552707864775}
+  - component: {fileID: 4721096290073892743}
   m_Layer: 0
   m_Name: End
   m_TagString: Untagged
@@ -44,6 +45,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4721096290073892743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3781514863710654903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc420bc7104cad4ab24a8c57b9e8248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zone_to_destroy: {fileID: 6694008243394272560}
 --- !u!1 &5569869917324781319
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,9 +198,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3781514863710654903}
     - target: {fileID: -6182045301656211421, guid: 77101ef070931e44c8fb9aa51cb11fc6, type: 3}
+      propertyPath: code
+      value: R0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6182045301656211421, guid: 77101ef070931e44c8fb9aa51cb11fc6, type: 3}
       propertyPath: devtest
       value: 
       objectReference: {fileID: 6694008243394272560}
+    - target: {fileID: -6182045301656211421, guid: 77101ef070931e44c8fb9aa51cb11fc6, type: 3}
+      propertyPath: Next_spawn
+      value: 
+      objectReference: {fileID: 3781514863710654903}
     - target: {fileID: -6182045301656211421, guid: 77101ef070931e44c8fb9aa51cb11fc6, type: 3}
       propertyPath: zones.Array.data[0]
       value: 
