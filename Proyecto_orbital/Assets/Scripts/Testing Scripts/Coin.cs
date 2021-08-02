@@ -6,7 +6,13 @@ public class Coin : MonoBehaviour
 {
     [SerializeField] private GameObject coin;
     public static int playerCoins = 0;
-    private int coinValue = 2;
+    [SerializeField]
+    public static int valueCoinOne = 5;
+    [SerializeField]
+    public static int valueCoinTwo = 10;
+    [SerializeField]
+    public static int valueCoinThree = 15;
+    private int coinCount = 4;
     void Start()
     {
         coin = GameObject.FindGameObjectWithTag("Coin");
@@ -15,14 +21,17 @@ public class Coin : MonoBehaviour
 
     public void PickedPlayerCoin()
     {
-        coinValue = Random.Range(0, 2);
-        switch(coinValue)
+        int coinNum = Random.Range(0, coinCount+1);
+        switch(coinNum)
         {
             case 1:
-                playerCoins = playerCoins + 5;
+                playerCoins = playerCoins + valueCoinOne;
                 break;
             case 2:
-                playerCoins = playerCoins + 15;
+                playerCoins = playerCoins + valueCoinTwo;
+                break;
+            case 3:
+                playerCoins = playerCoins + valueCoinThree;
                 break;
             default:
                 playerCoins = playerCoins + 1;
@@ -30,7 +39,7 @@ public class Coin : MonoBehaviour
 
         }
         Debug.Log("El jugador ha conseguido " + playerCoins + " monedas");
-        Debug.Log("El jugador ha conseguido " + coinValue + " monedas");
+        Debug.Log("El numero es " + coinNum + " monedas");
 
     }
 
