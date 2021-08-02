@@ -79,7 +79,7 @@ public class WallsSpawner : MonoBehaviour
             // destruye los muros creados cuando pase la bola.
             // cuando se van los muros vienen los nuevos.
             int getWalls = getWallsCount;
-            Debug.Log(getWalls);
+            //Debug.Log(getWalls);
             if (getWalls == 30)
             {
                 WallSpawned = true;

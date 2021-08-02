@@ -5,15 +5,22 @@ using UnityEngine;
 public class HealthPlayer : MonoBehaviour
 {
     private CentralSphereMovement _player;
+    private Coin coin;
     public static bool invencible;
 
     private void Start()
     {
-        _player = GameObject.Find("Player").GetComponent<CentralSphereMovement>(); // En esta linea hay un error NULL
-        invencible = false;
+        _player = GameObject.Find("Player").GetComponent<CentralSphereMovement>();
+        coin = GameObject.FindGameObjectWithTag("Coin").GetComponent<Coin>();
+        
     }
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.CompareTag("Coin"))
+        {
+            coin.PickedPlayerCoin();
+            Destroy(collision.gameObject);
+        }
         if (collision.gameObject.CompareTag("Enemy"))
         {
             if (!invencible)
@@ -37,6 +44,7 @@ public class HealthPlayer : MonoBehaviour
         {
             DestroyOrbit();
         }
+
     }
 
     public void Invencible(bool state)

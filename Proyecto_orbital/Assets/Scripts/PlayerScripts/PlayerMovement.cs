@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private float reachDistance = 1.0f;
     public float rotationSpeed = 5.0f;
     public string wayPointsName;
+    public static float playerScore;
 
     public GameObject Player;
 
@@ -36,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
             currentWayPoint++;
         }
 
+        playerScore = ((int)distance);
+        Debug.Log(playerScore);
     }
 
     //void detectPlayerPosition()
