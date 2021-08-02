@@ -44,7 +44,7 @@ public class CameraOffSet : MonoBehaviour
         {
             if (timer > 0)
             {
-                Debug.Log(finalPosition);
+                //Debug.Log(finalPosition);
                 transform.localPosition = Vector3.Lerp(preEffectPosition, finalPosition, 0.3f);
                 timer -= Time.deltaTime;
             }
