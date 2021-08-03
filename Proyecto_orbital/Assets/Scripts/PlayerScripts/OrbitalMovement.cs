@@ -11,6 +11,9 @@ public class OrbitalMovement : MonoBehaviour
     private static bool timer;
     private float countDown = 10f;
     private Vector3 direction;
+
+    // OverlapSphere Collider
+    Collider[] hitColliders;
     
 
     private void Start()
@@ -32,6 +35,10 @@ public class OrbitalMovement : MonoBehaviour
         }
         if (timer) { countDown -= Time.deltaTime; }
         if (countDown <= 0) { ReturnSpeed(); }
+
+        DetectWallsNear(centralSphere.transform.position, 2);
+        Debug.Log(centralSphere.transform.position);
+
     }
     private void FixedUpdate()
     {
@@ -65,4 +72,16 @@ public class OrbitalMovement : MonoBehaviour
     {
         GetComponent<SphereCollider>().enabled = state;
     }
+
+    public void DetectWallsNear(Vector3 center, float radius)
+    {
+        hitColliders = Physics.OverlapSphere(center, radius);
+        int i = 10;
+        while (i<hitColliders.Length)
+        {
+            hitColliders[i].SendMessage("AddDamage");
+            i++;
+        }
+    }
+
 }

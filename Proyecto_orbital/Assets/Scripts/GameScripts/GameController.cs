@@ -26,9 +26,9 @@ public class GameController : MonoBehaviour
     private void Update()
     {
         score += Time.deltaTime;
-        scoreController.PointsWhenOrbitPassNearwall();
+
         //scoreText.text = "Score: " + score.ToString("F0");
-        scoreText.text = "Score: " + PlayerMoves.playerScore.ToString("F0");
+        scoreText.text = PlayerMoves.playerScore.ToString("F0");
         coinText.text = "Coins: " + Coin.playerCoins.ToString();
     }
     /// <summary>

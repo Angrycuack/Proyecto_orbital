@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class ScoreController : MonoBehaviour
 {
+    public float minDistancePoints = 2.5f;
     /// <summary>
     /// Cuando el orbital pasa muy cerca de un muro
     /// </summary>
-    public void PointsWhenOrbitPassNearwall ()
+    public void PointsOrbitClosetoWall ()
     {
-        // if orbit position < 
+
 
     }
 
