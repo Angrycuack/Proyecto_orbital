@@ -17,7 +17,7 @@ public class world_generator : MonoBehaviour
 
     private void Start()
     {
-        devzone = FindObjectOfType<DevLog_zone>();
+        
         if (world_setings.dificulty <= 1)
         {
             zone = zones[Random.Range(0, 1)];
@@ -46,6 +46,7 @@ public class world_generator : MonoBehaviour
         {
             if (do_once == false)
             {
+                devzone = FindObjectOfType<DevLog_zone>();
                 devzone.codezone = code;
                 Instantiate(zone, new Vector3((Next_spawn.transform.position.x + spawn_offset.x), (Next_spawn.transform.position.y + spawn_offset.y), (Next_spawn.transform.position.z + spawn_offset.z)), Quaternion.identity);
                 do_once = true;
