@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private TMP_Text coinText;
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject gameOverPanel;
-    
+    [SerializeField] ScoreController scoreController;
     private float score;
     public int orbitNumber;
 
@@ -20,11 +20,14 @@ public class GameController : MonoBehaviour
     {
         score = 0f;
         instance = this;
-        
+        //No es necesario crear un new ya que no es una clase, si no un monobehaviour.
+        //scoreController = new ScoreController();
+
     }
     private void Update()
     {
         score += Time.deltaTime;
+        scoreController.PointsWhenOrbitPassNearwall();
         //scoreText.text = "Score: " + score.ToString("F0");
         scoreText.text = "Score: " + PlayerMoves.playerScore.ToString("F0");
         coinText.text = "Coins: " + Coin.playerCoins.ToString();

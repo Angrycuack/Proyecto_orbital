@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    [SerializeField] private GameObject coin;
     public static int playerCoins = 0;
-    void Start()
-    {
-        coin = GameObject.FindGameObjectWithTag("Coin");
-    }
-    
+    public static int[] valueCoinOne = { 5, 10, 15 };
+    private int coinCount = 4;
 
     public void PickedPlayerCoin()
     {
-        playerCoins++;
-        Debug.Log("El jugador ha conseguido " + playerCoins + "monedas");
- 
+        int coinNum = Random.Range(0, coinCount+1);
+        playerCoins += valueCoinOne[coinNum];
+        Debug.Log("El jugador ha conseguido " + playerCoins + " monedas");
+        Debug.Log("El numero es " + coinNum + " monedas");
     }
 
 }
