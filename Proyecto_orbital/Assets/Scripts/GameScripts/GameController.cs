@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private TMP_Text coinText;
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject gameOverPanel;
-    ScoreController scoreController;
+    [SerializeField] ScoreController scoreController;
     private float score;
     public int orbitNumber;
 
@@ -20,7 +20,8 @@ public class GameController : MonoBehaviour
     {
         score = 0f;
         instance = this;
-        scoreController = new ScoreController();
+        //No es necesario crear un new ya que no es una clase, si no un monobehaviour.
+        //scoreController = new ScoreController();
 
     }
     private void Update()

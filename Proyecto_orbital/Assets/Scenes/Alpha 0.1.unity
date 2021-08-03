@@ -3062,7 +3062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bda5a79c475d294bb6c124b36f5944a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: {fileID: 592238315}
+  Waypoint: {fileID: 592238315}
   speed: 0.1
   reachThisDistance: 0
 --- !u!1 &2091344810
@@ -3095,6 +3095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 138803343}
+  coinText: {fileID: 0}
   pausePanel: {fileID: 176400061}
   gameOverPanel: {fileID: 1630894447}
   orbitNumber: 0
