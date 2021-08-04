@@ -13,7 +13,11 @@ public class OrbitalMovement : MonoBehaviour
     private Vector3 direction;
 
     // OverlapSphere Collider
-    Collider[] hitColliders;
+    static Collider[] hitColliders;
+
+    // Wall detectection
+    private static bool wallDetected;
+   
     
 
     private void Start()
@@ -23,6 +27,7 @@ public class OrbitalMovement : MonoBehaviour
         rotateUp = true;
         ReturnSpeed();
         direction = Vector3.up;
+        
     }
 
     private void Update()
@@ -36,14 +41,16 @@ public class OrbitalMovement : MonoBehaviour
         if (timer) { countDown -= Time.deltaTime; }
         if (countDown <= 0) { ReturnSpeed(); }
 
-        DetectWallsNear(centralSphere.transform.position, 2);
-        Debug.Log(centralSphere.transform.position);
+        DetectWallsNear(transform.position, 1);
+        //Debug.Log(transform.position);
+
 
     }
     private void FixedUpdate()
     {
         transform.RotateAround(centralSphere.transform.position, direction, speed * Time.deltaTime);
         // Debug.Log(speed);
+        
     }
     /// <summary>
     /// Método que se encarga de aumentar o disminuar la velocidad del orbital.
@@ -73,15 +80,34 @@ public class OrbitalMovement : MonoBehaviour
         GetComponent<SphereCollider>().enabled = state;
     }
 
+    /// <summary>
+    /// Detectar un muro cerca 
+    /// return true;
+    /// </summary>
+    /// <param name="center"></param>
+    /// <param name="radius"></param>
     public void DetectWallsNear(Vector3 center, float radius)
     {
         hitColliders = Physics.OverlapSphere(center, radius);
-        int i = 10;
-        while (i<hitColliders.Length)
+        
+        foreach(Collider c in hitColliders)
         {
-            hitColliders[i].SendMessage("AddDamage");
-            i++;
+            wallDetected = c.CompareTag("Wall");
         }
+        if (wallDetected.Equals(true) && wallDetected.Equals(1))
+        {
+            Debug.LogWarning("No walls detected");
+        }
+        else
+        {
+            ScoreController.PointsWhenOrbitClosetoWall();
+        }
+    
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, 1);
+    }
 }
