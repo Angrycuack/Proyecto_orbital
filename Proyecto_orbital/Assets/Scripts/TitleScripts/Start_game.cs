@@ -12,12 +12,12 @@ public class Start_game : MonoBehaviour
 
     public PlayerMoves player;
 
-    public Button yourButton;
+    public Button Button;
 
 
     void Start()
     {
-        Button btn = yourButton.GetComponent<Button>();
+        Button btn = Button.GetComponent<Button>();
         btn.onClick.AddListener(change);
     }
 
