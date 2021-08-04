@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class ScoreController : MonoBehaviour
 {
-    public float minDistancePoints = 2.5f;
+    
+    public static float pointsToAddCloseWall = 10;
+    public static float playerScore;
     /// <summary>
     /// Cuando el orbital pasa muy cerca de un muro
     /// </summary>
-    public void PointsOrbitClosetoWall ()
+    public static void PointsWhenOrbitClosetoWall()
     {
-
-
+        Debug.LogError("No points to add");
     }
 
     /// <summary>
     /// Por distancia recorrida
     /// </summary>
-    public void PointsTraveledDistance ()
+    public static void PointsTraveledDistance (float distanceScore)
     {
-
+        playerScore = distanceScore;
     }
 
     /// <summary>
