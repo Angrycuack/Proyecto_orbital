@@ -19,9 +19,6 @@ public class PlayerMoves : MonoBehaviour
     // velocidad que va la esfera
     [SerializeField]
     public float speed = 0;
-    // Usar Random 
-    private float gotoLeft;
-    private float gotoRight;
 
     // Score del jugador get from distance
     public static float playerScore;

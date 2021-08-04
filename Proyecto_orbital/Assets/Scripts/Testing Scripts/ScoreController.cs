@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreController : MonoBehaviour
+public class ScoreController 
 {
-    
-    public static float pointsToAddCloseWall = 10;
-    public static float playerScore;
+    public static int pointsToAddCloseWall;
+    public static int playerScore;
+    private int pointsCloseWall;
+    private static int playerScore_print;
+
     /// <summary>
     /// Cuando el orbital pasa muy cerca de un muro
     /// </summary>
-    public static void PointsWhenOrbitClosetoWall()
+    public static void PointsWhenOrbitClosetoWall(int scoretoAdd)
     {
-        Debug.LogError("No points to add");
+        pointsToAddCloseWall = +scoretoAdd;
     }
 
     /// <summary>
@@ -20,13 +22,14 @@ public class ScoreController : MonoBehaviour
     /// </summary>
     public static void PointsTraveledDistance (float distanceScore)
     {
-        playerScore = distanceScore;
+
+        playerScore = (int) Mathf.Round(distanceScore);
     }
 
     /// <summary>
     /// Tras pasar 5 segundos sin tocar la pantalla
     /// </summary>
-    public void PointsNotTouchingScreen ()
+    void PointsNotTouchingScreen ()
     {
 
     }
@@ -34,8 +37,18 @@ public class ScoreController : MonoBehaviour
     /// <summary>
     /// Tras pasar 1 minuto sin recibir ningún golpe
     /// </summary>
-    public void PointsSpendTimeNotHit ()
+    void PointsSpendTimeNotHit ()
     {
 
+    }
+
+    /// <summary>
+    /// Recoge todo el valor de puntos para sumar y manda el valor a imprimir en pantalla score
+    /// </summary>
+    /// <returns></returns>
+    public static int ScoreToPrint()
+    {
+        playerScore_print = playerScore + pointsToAddCloseWall;
+        return playerScore_print;
     }
 }

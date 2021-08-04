@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
     [SerializeField] ScoreController scoreController;
     private float score;
     public int orbitNumber;
+    public int playerScoreToPrint;
 
     private void Awake()
     {
@@ -22,14 +23,15 @@ public class GameController : MonoBehaviour
         instance = this;
         //No es necesario crear un new ya que no es una clase, si no un monobehaviour.
         //scoreController = new ScoreController();
-
+        
     }
     private void Update()
     {
         score += Time.deltaTime;
 
         //scoreText.text = "Score: " + score.ToString("F0");
-        scoreText.text = ScoreController.playerScore.ToString("F0");
+        playerScoreToPrint = ScoreController.ScoreToPrint();
+        scoreText.text = playerScoreToPrint.ToString();
         coinText.text = "Coins: " + Coin.playerCoins.ToString();
     }
     /// <summary>

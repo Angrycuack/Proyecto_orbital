@@ -16,9 +16,8 @@ public class OrbitalMovement : MonoBehaviour
     static Collider[] hitColliders;
 
     // Wall detectection
-    private static bool wallDetected;
-   
     
+
 
     private void Start()
     {
@@ -27,6 +26,8 @@ public class OrbitalMovement : MonoBehaviour
         rotateUp = true;
         ReturnSpeed();
         direction = Vector3.up;
+
+
         
     }
 
@@ -41,16 +42,26 @@ public class OrbitalMovement : MonoBehaviour
         if (timer) { countDown -= Time.deltaTime; }
         if (countDown <= 0) { ReturnSpeed(); }
 
-        DetectWallsNear(transform.position, 1);
-        //Debug.Log(transform.position);
-
+        //DetectWallsNear(transform.position, 1);
 
     }
     private void FixedUpdate()
     {
         transform.RotateAround(centralSphere.transform.position, direction, speed * Time.deltaTime);
         // Debug.Log(speed);
-        
+        //Vector3 fwd = transform.TransformDirection(Vector3.forward);
+        //if (Physics.Raycast(transform.position, fwd, 1))
+        //{
+        //    Collider detectedWall = GameObject.FindGameObjectWithTag("Wall").GetComponent<Collider>();
+        //    if (Wall.name == detectedWall.name)
+
+        //        Debug.Log("Detectado " + detectedWall);
+        //    else
+        //        Debug.LogError("Dectectado un muro");
+            
+          
+        //}
+
     }
     /// <summary>
     /// Método que se encarga de aumentar o disminuar la velocidad del orbital.
@@ -86,23 +97,31 @@ public class OrbitalMovement : MonoBehaviour
     /// </summary>
     /// <param name="center"></param>
     /// <param name="radius"></param>
-    public void DetectWallsNear(Vector3 center, float radius)
-    {
-        hitColliders = Physics.OverlapSphere(center, radius);
+    //public void DetectWallsNear(Vector3 center, float radius)
+    //{
+
+
         
-        foreach(Collider c in hitColliders)
-        {
-            wallDetected = c.CompareTag("Wall");
-        }
-        if (wallDetected.Equals(true) && wallDetected.Equals(1))
-        {
-            Debug.LogWarning("No walls detected");
-        }
-        else
-        {
-            ScoreController.PointsWhenOrbitClosetoWall();
-        }
-    
+    //    hitColliders = Physics.OverlapSphere(center, radius);
+
+    //    foreach (Collider c in hitColliders)
+    //    {
+    //        if (c.CompareTag("Wall"))
+    //        {
+    //            if (!c.GetComponent<Collider>().isTrigger)
+    //            {
+    //                Debug.LogWarning("Wall detected");
+
+    //            }
+                
+                
+                
+    //        }
+    //    }
+    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        
     }
 
     private void OnDrawGizmos()
