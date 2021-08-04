@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
         score += Time.deltaTime;
 
         //scoreText.text = "Score: " + score.ToString("F0");
-        scoreText.text = PlayerMoves.playerScore.ToString("F0");
+        scoreText.text = ScoreController.playerScore.ToString("F0");
         coinText.text = "Coins: " + Coin.playerCoins.ToString();
     }
     /// <summary>

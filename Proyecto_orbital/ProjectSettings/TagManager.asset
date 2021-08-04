@@ -10,6 +10,7 @@ TagManager:
   - Orbital
   - IronEnemy
   - Coin
+  - Wall
   layers:
   - Default
   - TransparentFX

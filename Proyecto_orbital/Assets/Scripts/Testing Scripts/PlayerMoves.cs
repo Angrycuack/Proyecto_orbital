@@ -39,7 +39,7 @@ public class PlayerMoves : MonoBehaviour
     private float t = 1;
     void Start()
     {
-        
+        player_currentPosition = this.transform.position;
         
         
     }
@@ -56,7 +56,8 @@ public class PlayerMoves : MonoBehaviour
         //Debug.Log("Where is the target " + target);
         transform.position = Vector3.MoveTowards(player_lastPosition, Vector3.Lerp(player_lastPosition, target, t), speed);
 
-        playerScore = distance;
+        ScoreController.PointsTraveledDistance(distance);
+
         //for (int i = 0; i <= 10; i++)
         //{
         //    if (player_lastPosition == target)
