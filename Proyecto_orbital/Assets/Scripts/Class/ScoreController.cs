@@ -5,6 +5,7 @@ using UnityEngine;
 public class ScoreController 
 {
     public static int pointsToAddCloseWall;
+    private static int poinsToAddNotTouching;
     public static int playerScore;
     private int pointsCloseWall;
     private static int playerScore_print;
@@ -29,9 +30,9 @@ public class ScoreController
     /// <summary>
     /// Tras pasar 5 segundos sin tocar la pantalla
     /// </summary>
-    void PointsNotTouchingScreen ()
+    public static void PointsNotTouchingScreen (int scoretoAdd)
     {
-
+        poinsToAddNotTouching = +scoretoAdd;
     }
 
     /// <summary>
@@ -48,7 +49,7 @@ public class ScoreController
     /// <returns></returns>
     public static int ScoreToPrint()
     {
-        playerScore_print = playerScore + pointsToAddCloseWall;
+        playerScore_print = playerScore + pointsToAddCloseWall + poinsToAddNotTouching;
         return playerScore_print;
     }
 }

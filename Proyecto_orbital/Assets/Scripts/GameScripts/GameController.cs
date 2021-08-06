@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
     [SerializeField] ScoreController scoreController;
     private float score;
     public int orbitNumber;
-    public int playerScoreToPrint;
+    private int playerScoreToPrint;
 
     private void Awake()
     {
