@@ -12,6 +12,13 @@ public class OrbitalMovement : MonoBehaviour
     private float countDown = 10f;
     private Vector3 direction;
 
+    // Timer para agregar puntos cuando no se haya tocado la pantalla x tiempo
+    [SerializeField]
+    private float set_TimerNoTouch = 5;
+    private float _Timer;
+    private float prev_Timer;
+    private float add_points = 10;
+
     // OverlapSphere Collider
     static Collider[] hitColliders;
 
@@ -27,7 +34,8 @@ public class OrbitalMovement : MonoBehaviour
         ReturnSpeed();
         direction = Vector3.up;
 
-
+        _Timer = Time.fixedTime;
+        prev_Timer = _Timer;
         
     }
 
@@ -35,15 +43,17 @@ public class OrbitalMovement : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            _Timer = Time.fixedTime;
+            TimerPressButton(_Timer);
             if (!rotateUp) { direction = Vector3.up; }
             if (rotateUp) { direction = Vector3.down; }
             rotateUp = !rotateUp;
         }
+
         if (timer) { countDown -= Time.deltaTime; }
         if (countDown <= 0) { ReturnSpeed(); }
 
-        //DetectWallsNear(transform.position, 1);
-
+        _Timer = Time.time;
     }
     private void FixedUpdate()
     {
@@ -90,43 +100,28 @@ public class OrbitalMovement : MonoBehaviour
     {
         GetComponent<SphereCollider>().enabled = state;
     }
-
-    /// <summary>
-    /// Detectar un muro cerca 
-    /// return true;
-    /// </summary>
-    /// <param name="center"></param>
-    /// <param name="radius"></param>
-    //public void DetectWallsNear(Vector3 center, float radius)
+    
+    //private void OnDrawGizmos()
     //{
-
-
-        
-    //    hitColliders = Physics.OverlapSphere(center, radius);
-
-    //    foreach (Collider c in hitColliders)
-    //    {
-    //        if (c.CompareTag("Wall"))
-    //        {
-    //            if (!c.GetComponent<Collider>().isTrigger)
-    //            {
-    //                Debug.LogWarning("Wall detected");
-
-    //            }
-                
-                
-                
-    //        }
-    //    }
+    //    Gizmos.color = Color.blue;
+    //    Gizmos.DrawWireSphere(transform.position, 1);
     //}
-    private void OnTriggerEnter(Collider other)
+    
+    /// <summary>
+    /// Recoge el valor del tiempo cuando el jugador toco la pantalla
+    /// </summary>
+    /// <param name="gTime"></param>
+    public void TimerPressButton (float gTime)
     {
-        
+        float dif_Time = gTime - prev_Timer;
+        if (prev_Timer < gTime && dif_Time >= set_TimerNoTouch)
+        {
+            Debug.Log("Time " + prev_Timer + " Pressed " + gTime + " Dif " + dif_Time);
+            ScoreController.PointsNotTouchingScreen((int) Mathf.Round(add_points));
+        }
+            
+            
+        prev_Timer = gTime;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, 1);
-    }
 }

@@ -12,9 +12,12 @@ public class Coin : MonoBehaviour
         playerCoins = playerCoins + valueCoins[coinNum];
         Debug.Log("El jugador ha conseguido " + playerCoins + " monedas");
         Debug.Log("El numero es " + valueCoins + " monedas");
-        
-      
-           
+    }
+
+    public static int ConvertPointsToCoins (int pScore)
+    {
+        int sc = pScore / 100;
+        return playerCoins =+ sc;
     }
 
 }
