@@ -21,8 +21,7 @@ public class GameController : MonoBehaviour
     {
         score = 0f;
         instance = this;
-        //No es necesario crear un new ya que no es una clase, si no un monobehaviour.
-        //scoreController = new ScoreController();
+        scoreController = new ScoreController();
         
     }
     private void Update()
