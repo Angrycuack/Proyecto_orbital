@@ -6,7 +6,7 @@ public class OrbitalMovement : MonoBehaviour
 {
     [SerializeField] private Transform centralSphere;
     private static float speed;
-    private float basicSpeed = 30f;
+    public float basicSpeed = 30f;
     private bool rotateUp;
     private static bool timer;
     private float countDown = 10f;
