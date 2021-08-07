@@ -22,7 +22,7 @@ public class MenuManager : MonoBehaviour
     private void RefreshUI()
     {
         premiumText.text = GameManager.instance.Player.premium.ToString();
-        hiScoreText.text = "Hi-Score: "+GameManager.instance.Player.hiScore;
+        hiScoreText.text = "Hi-Score: " + GameManager.instance.Player.hiScore;
     }
     /// <summary>
     /// Método que cierra la pestaña donde se pulsa el botón "close".

@@ -5,15 +5,19 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     public static int playerCoins = 0;
-    public static int[] valueCoinOne = { 5, 10, 15 };
-    private int coinCount = 4;
-
+    public int[] valueCoins = {1,5,15};
     public void PickedPlayerCoin()
     {
-        int coinNum = Random.Range(0, coinCount+1);
-        playerCoins += valueCoinOne[coinNum];
+        int coinNum = Random.Range(0, 2);
+        playerCoins = playerCoins + valueCoins[coinNum];
         Debug.Log("El jugador ha conseguido " + playerCoins + " monedas");
-        Debug.Log("El numero es " + coinNum + " monedas");
+        Debug.Log("El numero es " + valueCoins + " monedas");
+    }
+
+    public static int ConvertPointsToCoins (int pScore)
+    {
+        int sc = pScore / 100;
+        return playerCoins =+ sc;
     }
 
 }
