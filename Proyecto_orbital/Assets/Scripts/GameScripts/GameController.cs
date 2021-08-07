@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private TMP_Text coinText;
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject showCoin;
     [SerializeField] ScoreController scoreController;
     public int totalCoins;
     private float score;
@@ -92,9 +93,9 @@ public class GameController : MonoBehaviour
     /// <returns></returns>
     IEnumerator ShowTotalCoins()
     {
-        coinText.enabled = true;
+        showCoin.SetActive(true);
         yield return new WaitForSeconds(1f);
-        coinText.enabled = false;
+        showCoin.SetActive(false);
     }
 
 }

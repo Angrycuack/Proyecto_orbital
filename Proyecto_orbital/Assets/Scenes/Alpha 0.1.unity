@@ -4857,6 +4857,7 @@ MonoBehaviour:
   coinText: {fileID: 750380753}
   pausePanel: {fileID: 176400061}
   gameOverPanel: {fileID: 2135358195}
+  showCoin: {fileID: 750380751}
   totalCoins: 0
   orbitNumber: 0
 --- !u!4 &2091344812
