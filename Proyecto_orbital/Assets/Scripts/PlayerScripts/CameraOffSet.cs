@@ -24,7 +24,8 @@ public class CameraOffSet : MonoBehaviour
 
     private void Update()
     {
-        targetPosition = new Vector3(target.transform.position.x, target.transform.position.y + yOffset, target.transform.position.z + zOffset);
+        float retardPosition = Mathf.Lerp(this.transform.position.x, target.position.x, cameraSpeed * Time.deltaTime);
+        this.transform.position = new Vector3(retardPosition, target.position.y + yOffset, target.position.z + zOffset);
         //Se activa al hacer el efecto de cámara golpeando contra algo.
         if (shaking)
         {
@@ -55,10 +56,6 @@ public class CameraOffSet : MonoBehaviour
                 this.transform.position = Vector3.Lerp(this.transform.position,preEffectPosition, 0.3f); 
             }
         }
-    }
-    private void LateUpdate()
-    {
-        this.transform.position = Vector3.Lerp(this.transform.position, targetPosition, cameraSpeed*Time.deltaTime);
     }
     /// <summary>
     /// Método que se encarga de inicializar el efecto de shaking.
