@@ -25,7 +25,7 @@ public class Start_game : MonoBehaviour
     {
         Menu.SetActive(false);
         Juego.SetActive(true);
-        player.speed = 0.05f;
+        player.speed = 0.06f;
     
     }
 

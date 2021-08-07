@@ -17,13 +17,6 @@ public class TapWall : MonoBehaviour
         visibleWall = GetComponent<MeshRenderer>();
         wallCollider = GetComponent<BoxCollider>();
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Orbital")
-        {
-            Handheld.Vibrate();
-        }
-    }
 
     void Update()
     {
@@ -41,7 +34,7 @@ public class TapWall : MonoBehaviour
                 GetComponent<MeshRenderer>().material = invisible;
             }
             
-            wallCollider.isTrigger = !active;
+            wallCollider.enabled = active;
         }
     }
 }
