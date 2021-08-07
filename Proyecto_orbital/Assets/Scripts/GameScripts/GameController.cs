@@ -13,12 +13,14 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] ScoreController scoreController;
+    public int totalCoins;
     private float score;
     public int orbitNumber;
     private int playerScoreToPrint;
 
     private void Awake()
     {
+        totalCoins = 0;
         score = 0f;
         instance = this;
         scoreController = new ScoreController();
@@ -31,7 +33,6 @@ public class GameController : MonoBehaviour
         //scoreText.text = "Score: " + score.ToString("F0");
         playerScoreToPrint = ScoreController.ScoreToPrint();
         scoreText.text = playerScoreToPrint.ToString();
-        coinText.text = "Coins: " + Coin.playerCoins.ToString();
     }
     /// <summary>
     /// Método que devuelve al jugador a la pantalla de Menú.
@@ -64,10 +65,36 @@ public class GameController : MonoBehaviour
             Debug.Log("Game Over");
         }       
     }
-
+    /// <summary>
+    /// Método que se encarga de ajustar los orbitales en función del valor dado.
+    /// </summary>
+    /// <param name="add">Si se pasa el valor true se añaden orbitales. False, se restan y se comprueba que no se haya acabado
+    /// total de orbitales disponibles.</param>
     public void AddOrbit(bool add)
     {
         if (add) { orbitNumber++; }
         else { orbitNumber--; GameOver(); }
     }
+    /// <summary>
+    /// Método que se encarga de añadir un número de monedas determinado a la variable en cuestión.
+    /// </summary>
+    /// <param name="value">El valor dado por el que llama al método que actualiza la variable de las
+    /// monedas y el texto de las mismas.</param>
+    public void AddCoins(int value)
+    {
+        totalCoins += value;
+        coinText.text = "Coins: " + totalCoins;
+        StartCoroutine(ShowTotalCoins());
+    }
+    /// <summary>
+    /// Corrutina que activa 1 segundo el texto de las monedas y luego lo vuelve a ocultar.
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator ShowTotalCoins()
+    {
+        coinText.enabled = true;
+        yield return new WaitForSeconds(1f);
+        coinText.enabled = false;
+    }
+
 }
