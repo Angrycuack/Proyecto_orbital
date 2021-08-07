@@ -225,6 +225,9 @@
         },
         {
             "m_Id": "a7b1e406868843c19bdbfd19a03b0fae"
+        },
+        {
+            "m_Id": "5119c5bcb2834f048bed0d50820a4677"
         }
     ],
     "m_GroupDatas": [
@@ -436,6 +439,20 @@
             "m_InputSlot": {
                 "m_Node": {
                     "m_Id": "12050e7195ab48a7a2582d0e327b485c"
+                },
+                "m_SlotId": 1
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "5119c5bcb2834f048bed0d50820a4677"
+                },
+                "m_SlotId": 1
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "886bb12d9b924dd485f0700befde503e"
                 },
                 "m_SlotId": 1
             }
@@ -813,9 +830,9 @@
             },
             "m_InputSlot": {
                 "m_Node": {
-                    "m_Id": "886bb12d9b924dd485f0700befde503e"
+                    "m_Id": "5119c5bcb2834f048bed0d50820a4677"
                 },
-                "m_SlotId": 1
+                "m_SlotId": 0
             }
         },
         {
@@ -1284,6 +1301,30 @@
     "m_RangeValues": {
         "x": 0.0,
         "y": 5.0
+    }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
+    "m_ObjectId": "055cb69f8bfe4678bfbc0044d7032c31",
+    "m_Id": 1,
+    "m_DisplayName": "Out",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
     }
 }
 
@@ -3223,6 +3264,41 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.OneMinusNode",
+    "m_ObjectId": "5119c5bcb2834f048bed0d50820a4677",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "One Minus",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -1453.0,
+            "y": 423.0000305175781,
+            "width": 208.00001525878907,
+            "height": 278.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "6ab9eff22118407bb8d2c5b4dbdac84d"
+        },
+        {
+            "m_Id": "055cb69f8bfe4678bfbc0044d7032c31"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    }
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "52a42faf1a484c769e764f9731e1c1e3",
     "m_Id": -1012822261,
@@ -3755,6 +3831,30 @@
         "m_Guid": ""
     },
     "m_DefaultType": 0
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
+    "m_ObjectId": "6ab9eff22118407bb8d2c5b4dbdac84d",
+    "m_Id": 0,
+    "m_DisplayName": "In",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "In",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0,
+        "w": 1.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    }
 }
 
 {
@@ -7059,9 +7159,9 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1435.9993896484375,
-            "y": 304.0000915527344,
-            "width": 208.0,
+            "x": -1708.0001220703125,
+            "y": 349.0,
+            "width": 208.00001525878907,
             "height": 326.0
         }
     },
@@ -8311,8 +8411,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1591.9996337890625,
-            "y": 405.9999084472656,
+            "x": -1864.0001220703125,
+            "y": 451.0000305175781,
             "width": 149.0,
             "height": 34.0
         }

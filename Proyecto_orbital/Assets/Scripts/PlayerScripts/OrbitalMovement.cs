@@ -37,7 +37,7 @@ public class OrbitalMovement : MonoBehaviour
         if (countDown <= 0) { ReturnSpeed(); }
 
         DetectWallsNear(centralSphere.transform.position, 2);
-        Debug.Log(centralSphere.transform.position);
+        //Debug.Log(centralSphere.transform.position);
 
     }
     private void FixedUpdate()

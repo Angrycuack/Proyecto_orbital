@@ -5,14 +5,15 @@ using UnityEngine;
 public class TapWall : MonoBehaviour
 {
     //Generamos variables para saber si el objeto está activo o no y también para desactivarlo.
-    private bool active;
+    public bool active;
     private MeshRenderer visibleWall;
     private BoxCollider wallCollider;
+    public Material visible;
+    public Material invisible;
 
     private void Start()
     {
         //Inicializamos la variables con el valor que queremos que tengan por defecto.
-        active = true;
         visibleWall = GetComponent<MeshRenderer>();
         wallCollider = GetComponent<BoxCollider>();
     }
@@ -24,7 +25,15 @@ public class TapWall : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             active = !active;
-            visibleWall.enabled = active;
+            if (active == true)
+            {
+                GetComponent<MeshRenderer>().material = visible;
+            }
+            else
+            {
+                GetComponent<MeshRenderer>().material = invisible;
+            }
+            
             wallCollider.enabled = active;
         }
     }

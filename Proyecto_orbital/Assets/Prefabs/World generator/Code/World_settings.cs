@@ -11,7 +11,7 @@ public class World_settings : MonoBehaviour
 
     private void Update()
     {
-        if (exp >= 10)
+        if (exp >= 100)
         {
             exp = 0;
             dificulty++;

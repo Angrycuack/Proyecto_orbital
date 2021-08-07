@@ -57,14 +57,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87a81d6e95289f849bc0e5c860eea0b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  end: {fileID: 0}
+  Next_spawn: {fileID: 0}
   spawn_offset: {x: 0, y: 0, z: 0}
-  zones:
-  - {fileID: 6694008243394272560, guid: 227b4972d66343346b5684ac727e870b, type: 3}
-  - {fileID: 6284495500849184418, guid: 53ea073ca62ab164483b9bf0ea828747, type: 3}
-  - {fileID: 6284495500849184418, guid: 53ea073ca62ab164483b9bf0ea828747, type: 3}
-  - {fileID: 6284495500849184418, guid: 53ea073ca62ab164483b9bf0ea828747, type: 3}
-  - {fileID: 6284495500849184418, guid: 53ea073ca62ab164483b9bf0ea828747, type: 3}
-  - {fileID: 6284495500849184418, guid: 53ea073ca62ab164483b9bf0ea828747, type: 3}
+  zones1:
+  - {fileID: 7253365041876661247, guid: 17809a19bc1d0ba4ea44ba5ae6b5b141, type: 3}
+  - {fileID: 158367572730910057, guid: ebf3c54f357f19b48a9972cad1574925, type: 3}
+  - {fileID: 2453085071847974269, guid: 53bcd2d24d18ac447a40dbab68138d80, type: 3}
+  - {fileID: 7562684001144930009, guid: 3fffd654567f47047a8cd53b01d92747, type: 3}
+  - {fileID: 8672256604207189897, guid: 4cf3e34e5a80a5843849fbab377ecbf7, type: 3}
+  - {fileID: 7979499837485900972, guid: a485e77957c26e84b86baadaecc4aa4c, type: 3}
+  - {fileID: 2784038921962669727, guid: 74327ad0ca98d6e4c8e41ce38b9df26d, type: 3}
+  zones2: []
+  zones3: []
+  zones4: []
   world_setings: {fileID: 8900680611803152936, guid: 12f3d512a75579a49a30bccc54ada05f, type: 3}
-  devtest: {fileID: 6694008243394272560, guid: 227b4972d66343346b5684ac727e870b, type: 3}
+  code: 
