@@ -30,9 +30,12 @@ EditorUserSettings:
       value: 22424703114646680e0b0227036c78111b122b292926237e38271427fb
       flags: 0
     RecentlyUsedScenePath-8:
+<<<<<<< HEAD
       value: 22424703114646680e0b0227036c6b150503580b20382e316d795362acf53a31f6fe
       flags: 0
     RecentlyUsedScenePath-9:
+=======
+>>>>>>> c554ff421f883b7d91bd51f16efc67d03297be9d
       value: 22424703114646680e0b0227036c7e1c061f196a7c66777e38271427fb
       flags: 0
     UnityEditor.ShaderGraph.Blackboard:
