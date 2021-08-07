@@ -10,9 +10,11 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text coinText;
+    
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject showCoin;
+
     [SerializeField] ScoreController scoreController;
     public int totalCoins;
     private float score;

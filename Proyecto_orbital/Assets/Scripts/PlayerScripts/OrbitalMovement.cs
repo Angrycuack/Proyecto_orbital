@@ -116,8 +116,14 @@ public class OrbitalMovement : MonoBehaviour
         float dif_Time = gTime - prev_Timer;
         if (prev_Timer < gTime && dif_Time >= set_TimerNoTouch)
         {
-            Debug.Log("Time " + prev_Timer + " Pressed " + gTime + " Dif " + dif_Time);
-            ScoreController.PointsNotTouchingScreen((int) Mathf.Round(add_points));
+            bool timeOn = true;
+            while(timeOn)
+            {
+                Debug.Log("Time " + prev_Timer + " Pressed " + gTime + " Dif " + dif_Time);
+                ScoreController.PointsNotTouchingScreen((int)Mathf.Round(add_points));
+                timeOn = false;
+            }
+            
         }
             
             
