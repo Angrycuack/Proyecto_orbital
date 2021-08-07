@@ -16,11 +16,13 @@ public class HealthPlayer : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        // recoge las monedas
         if (collision.gameObject.CompareTag("Coin"))
         {
             coin.PickedPlayerCoin();
             Destroy(collision.gameObject);
         }
+        // efecto invencible
         if (collision.gameObject.CompareTag("Enemy"))
         {
             if (!invencible)
@@ -32,7 +34,7 @@ public class HealthPlayer : MonoBehaviour
                 Destroy(collision.gameObject);
                 GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraOffSet>().Shake();
             }
-        
+        // recoge PowerUP
         }
         if (collision.gameObject.CompareTag("PowerUp"))
         {
