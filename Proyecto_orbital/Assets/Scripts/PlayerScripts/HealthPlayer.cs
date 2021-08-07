@@ -5,23 +5,23 @@ using UnityEngine;
 public class HealthPlayer : MonoBehaviour
 {
     private CentralSphereMovement _player;
-    private Coin coin;
     public static bool invencible;
 
     private void Start()
     {
         _player = GameObject.Find("Player").GetComponent<CentralSphereMovement>();
-        coin = GameObject.FindGameObjectWithTag("Coin").GetComponent<Coin>();
+<<<<<<< HEAD
+        
+=======
+>>>>>>> c554ff421f883b7d91bd51f16efc67d03297be9d
         
     }
     private void OnCollisionEnter(Collision collision)
     {
-        // recoge las monedas
-        //if (collision.gameObject.CompareTag("Coin"))
-        //{
-        //    coin.PickedPlayerCoin();
-        //    Destroy(collision.gameObject);
-        //}
+<<<<<<< HEAD
+
+=======
+>>>>>>> c554ff421f883b7d91bd51f16efc67d03297be9d
         // efecto invencible
         if (collision.gameObject.CompareTag("Enemy"))
         {
