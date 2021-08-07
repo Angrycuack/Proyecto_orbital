@@ -19,7 +19,7 @@ public class End : MonoBehaviour
             if (do_once == false)
             {
                 world_settings.exp += 5;
-                Destroy(zone_to_destroy);
+                zone_to_destroy.SetActive(false);
                 do_once = true;
             }
         } 

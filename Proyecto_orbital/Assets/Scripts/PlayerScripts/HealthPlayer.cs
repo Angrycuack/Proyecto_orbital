@@ -10,10 +10,18 @@ public class HealthPlayer : MonoBehaviour
     private void Start()
     {
         _player = GameObject.Find("Player").GetComponent<CentralSphereMovement>();
+<<<<<<< HEAD
+        
+=======
+>>>>>>> c554ff421f883b7d91bd51f16efc67d03297be9d
         
     }
     private void OnCollisionEnter(Collision collision)
     {
+<<<<<<< HEAD
+
+=======
+>>>>>>> c554ff421f883b7d91bd51f16efc67d03297be9d
         // efecto invencible
         if (collision.gameObject.CompareTag("Enemy"))
         {
