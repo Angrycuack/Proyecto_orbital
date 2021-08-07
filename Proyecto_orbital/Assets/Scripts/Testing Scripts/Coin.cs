@@ -6,6 +6,16 @@ public class Coin : MonoBehaviour
 {
     public static int playerCoins = 0;
     public int[] valueCoins = {1,5,15};
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Orbital"))
+        {
+            PickedPlayerCoin();
+            Destroy(gameObject);
+        }
+
+    }
     public void PickedPlayerCoin()
     {
         int coinNum = Random.Range(0, 2);
