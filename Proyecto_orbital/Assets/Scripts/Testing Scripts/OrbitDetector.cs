@@ -9,9 +9,15 @@ public class OrbitDetector : MonoBehaviour
     {
         if (other.gameObject.tag == "Orbital")
         {
-            Debug.Log(other.gameObject.tag + " detected");
-
-            ScoreController.PointsWhenOrbitClosetoWall(pointsToAdd);
+            bool detectedOrbit = true;
+            
+            while(detectedOrbit)
+            {
+                Debug.Log(other.gameObject.tag + " detected");
+                ScoreController.PointsWhenOrbitClosetoWall(pointsToAdd);
+                detectedOrbit = false;
+            }
+            
         }
         
     }

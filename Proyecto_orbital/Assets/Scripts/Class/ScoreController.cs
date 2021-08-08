@@ -8,6 +8,7 @@ public class ScoreController
     private static int poinsToAddNotTouching;
     public static int playerScore;
     private int pointsCloseWall;
+    private static int playerScore_;
     private static int playerScore_print;
 
     /// <summary>
@@ -15,7 +16,7 @@ public class ScoreController
     /// </summary>
     public static void PointsWhenOrbitClosetoWall(int scoretoAdd)
     {
-        pointsToAddCloseWall = +scoretoAdd;
+        pointsToAddCloseWall = scoretoAdd;
     }
 
     /// <summary>
@@ -30,9 +31,10 @@ public class ScoreController
     /// <summary>
     /// Tras pasar 5 segundos sin tocar la pantalla
     /// </summary>
-    public static void PointsNotTouchingScreen (int scoretoAdd)
+    public static void PointsNotTouchingScreen (float scoretoAdd)
     {
-        poinsToAddNotTouching = +scoretoAdd;
+        Debug.Log(scoretoAdd + "Puntos");
+        poinsToAddNotTouching = (int) Mathf.Round(scoretoAdd);
     }
 
     /// <summary>
@@ -49,7 +51,12 @@ public class ScoreController
     /// <returns></returns>
     public static int ScoreToPrint()
     {
-        playerScore_print = playerScore + pointsToAddCloseWall + poinsToAddNotTouching;
+        Debug.LogWarning(poinsToAddNotTouching + " Puntos");
+
+        playerScore_ = playerScore;
+        playerScore_ += poinsToAddNotTouching;
+        playerScore_ += pointsToAddCloseWall;
+        playerScore_print = playerScore_;
         return playerScore_print;
     }
 }

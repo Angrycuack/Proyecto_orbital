@@ -17,12 +17,13 @@ public class OrbitalMovement : MonoBehaviour
     private float set_TimerNoTouch = 5;
     private float _Timer;
     private float prev_Timer;
-    private float add_points = 10;
+    private float add_points;
 
     // OverlapSphere Collider
     static Collider[] hitColliders;
 
-    // Wall detectection
+    // Touch detector
+    ScoreController scoreController;
     
 
 
@@ -36,14 +37,12 @@ public class OrbitalMovement : MonoBehaviour
 
         _Timer = Time.fixedTime;
         prev_Timer = _Timer;
-        
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            _Timer = Time.fixedTime;
             TimerPressButton(_Timer);
             if (!rotateUp) { direction = Vector3.up; }
             if (rotateUp) { direction = Vector3.down; }
@@ -58,19 +57,7 @@ public class OrbitalMovement : MonoBehaviour
     private void FixedUpdate()
     {
         transform.RotateAround(centralSphere.transform.position, direction, speed * Time.deltaTime);
-        // Debug.Log(speed);
-        //Vector3 fwd = transform.TransformDirection(Vector3.forward);
-        //if (Physics.Raycast(transform.position, fwd, 1))
-        //{
-        //    Collider detectedWall = GameObject.FindGameObjectWithTag("Wall").GetComponent<Collider>();
-        //    if (Wall.name == detectedWall.name)
 
-        //        Debug.Log("Detectado " + detectedWall);
-        //    else
-        //        Debug.LogError("Dectectado un muro");
-            
-          
-        //}
 
     }
     /// <summary>
@@ -116,8 +103,11 @@ public class OrbitalMovement : MonoBehaviour
         float dif_Time = gTime - prev_Timer;
         if (prev_Timer < gTime && dif_Time >= set_TimerNoTouch)
         {
-            Debug.Log("Time " + prev_Timer + " Pressed " + gTime + " Dif " + dif_Time);
-            ScoreController.PointsNotTouchingScreen((int) Mathf.Round(add_points));
+            Debug.LogWarning("Time " + prev_Timer + " Pressed " + gTime + " Dif " + dif_Time);
+            add_points = set_TimerNoTouch;
+            ScoreController.PointsNotTouchingScreen(add_points);
+             
+            
         }
             
             
