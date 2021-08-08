@@ -51,7 +51,6 @@ public class ScoreController
     /// <returns></returns>
     public static int ScoreToPrint()
     {
-        Debug.LogWarning(poinsToAddNotTouching + " Puntos");
 
         playerScore_ = playerScore;
         playerScore_ += poinsToAddNotTouching;
