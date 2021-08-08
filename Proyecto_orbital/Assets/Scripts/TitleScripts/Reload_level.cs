@@ -17,7 +17,9 @@ public class Reload_level : MonoBehaviour
 
     public void Reload ()
     {
+
         SceneManager.LoadScene("Alpha 0.1");
+        SceneManager.LoadScene(2);
         Time.timeScale = 1;
     }
 
