@@ -23,7 +23,6 @@ public class ScoreController
             c_playerScoreTotal = playerScoreTotal + scoretoAdd;
         }
         save_PlayerScore = c_playerScoreTotal;
-        Debug.Log("detectado: " + save_PlayerScore);
     }
 
     /// <summary>
@@ -47,7 +46,6 @@ public class ScoreController
         {
             c_playerScoreTotal = playerScoreTotal + poinsToAddNotTouching;
         }
-        Debug.Log(c_playerScoreTotal + "sumado");
         save_PlayerScore = c_playerScoreTotal;
     }
 
