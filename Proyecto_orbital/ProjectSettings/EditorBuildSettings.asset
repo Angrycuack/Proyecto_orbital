@@ -15,6 +15,11 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuScene.unity
     guid: 47eb9c163c48b794dbda9296c8028abe
   - enabled: 1
+<<<<<<< Updated upstream
     path: Assets/Scenes/Prototype.unity
     guid: 75f2ffff7a596914b9bf96037f24ea98
+=======
+    path: Assets/Scenes/Alpha 0.2.4.unity
+    guid: 5c3bdcf09462e804aa4b60caf09aab44
+>>>>>>> Stashed changes
   m_configObjects: {}
