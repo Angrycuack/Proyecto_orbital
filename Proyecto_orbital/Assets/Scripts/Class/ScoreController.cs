@@ -9,8 +9,6 @@ public class ScoreController
     public static int playerScoreTotal;
     public static int c_playerScoreTotal;
     private static int save_PlayerScore;
-    private int pointsCloseWall;
-    private static int playerScore_;
     private static int playerScore_print;
 
     /// <summary>
