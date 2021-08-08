@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class WallsSpawner : MonoBehaviour
 {
+    [Header ("Array para los prefabs de los muros")]
     public GameObject[] wallsArray;
+
     private float timeCurrentPlayerPosition;
     private float currentPlayerPosition;
+
     private Vector3 lastPlayerPosition;
     private float pointsToSpawnWall;
-    private int indexWalls = 0;
+    // private int indexWalls = 0;
     private int wallsCounted;
     public GameObject Player;
 
@@ -18,6 +21,11 @@ public class WallsSpawner : MonoBehaviour
     //float cdTimer = 2f;
 
     private int getWallsCount;
+
+    void Awake()
+    {
+        
+    }
     void Start()
     {
         lastPlayerPosition = Player.transform.position;
@@ -35,7 +43,7 @@ public class WallsSpawner : MonoBehaviour
         //}
 
         timer = Time.time;
-        Debug.Log("Time: " + timer);
+        // Debug.Log("Time: " + timer);
     }
     void FixedUpdate ()
     {
@@ -71,7 +79,7 @@ public class WallsSpawner : MonoBehaviour
             // destruye los muros creados cuando pase la bola.
             // cuando se van los muros vienen los nuevos.
             int getWalls = getWallsCount;
-            Debug.Log(getWalls);
+            //Debug.Log(getWalls);
             if (getWalls == 30)
             {
                 WallSpawned = true;
@@ -93,7 +101,7 @@ public class WallsSpawner : MonoBehaviour
     {
         if (getWallsCount == 1)
         {
-            Debug.Log("Destroy one wall");
+            //Debug.Log("Destroy one wall");
         }
     }
 
@@ -103,7 +111,7 @@ public class WallsSpawner : MonoBehaviour
         Vector3 pointsToSpawnWall = new Vector3(randX, 0, currentPlayerPosition);
 
         Instantiate(wallsArray[0], pointsToSpawnWall, Quaternion.identity);
-        Debug.Log(wallsArray[0]);
+        //Debug.Log(wallsArray[0]);
 
         timeCurrentPlayerPosition = currentPlayerPosition + Random.Range(0.5f, 2f); // Posicion ahora de la bola añadimos unos segundos para el cooldown
 
@@ -116,7 +124,7 @@ public class WallsSpawner : MonoBehaviour
         Vector3 pointsToSpawnWall = new Vector3(randX, 0, currentPlayerPosition);
 
         Instantiate(wallsArray[1], pointsToSpawnWall, Quaternion.identity);
-        Debug.Log(wallsArray[1]);
+        //Debug.Log(wallsArray[1]);
   
         timeCurrentPlayerPosition = currentPlayerPosition + Random.Range(0.5f, 2f);
     }

@@ -11,13 +11,14 @@ public class PlayerMovement : MonoBehaviour
     private float reachDistance = 1.0f;
     public float rotationSpeed = 5.0f;
     public string wayPointsName;
+    public static float playerScore;
 
     public GameObject Player;
 
     Vector3 last_position;
     Vector3 current_position;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         wayPointsToFollow = GameObject.Find(wayPointsName).GetComponent<Waypoints>();
@@ -36,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
             currentWayPoint++;
         }
 
+        playerScore = ((int)distance);
+        Debug.Log(playerScore);
     }
 
     //void detectPlayerPosition()

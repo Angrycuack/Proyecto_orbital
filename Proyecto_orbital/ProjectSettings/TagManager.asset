@@ -6,12 +6,16 @@ TagManager:
   tags:
   - Enemy
   - GameManager
-  - MultiplePU
+  - PowerUp
+  - Orbital
+  - IronEnemy
+  - Coin
+  - Wall
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 
@@ -43,4 +47,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BackgGround
+    uniqueID: 3094809621
     locked: 0

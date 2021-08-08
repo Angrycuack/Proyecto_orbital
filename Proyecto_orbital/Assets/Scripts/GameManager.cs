@@ -11,8 +11,12 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-<<<<<<< Updated upstream
-=======
+
+        QualitySettings.vSyncCount = 3 ;
+        Resolution playerScreen = Screen.currentResolution;
+        if(playerScreen.refreshRate > 60)
+
+
         QualitySettings.vSyncCount = 3 ;
         Resolution playerScreen = Screen.currentResolution;
         if(playerScreen.refreshRate >= 60)
@@ -23,7 +27,7 @@ public class GameManager : MonoBehaviour
         {
             Application.targetFrameRate = 30;
         }
->>>>>>> Stashed changes
+
     }
 
     public void Save()
