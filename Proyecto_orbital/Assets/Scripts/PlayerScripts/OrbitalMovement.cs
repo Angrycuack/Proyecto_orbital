@@ -14,10 +14,10 @@ public class OrbitalMovement : MonoBehaviour
 
     // Timer para agregar puntos cuando no se haya tocado la pantalla x tiempo
     [SerializeField]
-    private float set_TimerNoTouch = 5;
+    private int set_TimerNoTouch = 5;
     private float _Timer;
     private float prev_Timer;
-    private float add_points;
+    private int add_points;
 
     // OverlapSphere Collider
     static Collider[] hitColliders;
@@ -105,6 +105,7 @@ public class OrbitalMovement : MonoBehaviour
         {
             Debug.LogWarning("Time " + prev_Timer + " Pressed " + gTime + " Dif " + dif_Time);
             add_points = set_TimerNoTouch;
+            //ScoreController.playerScoreTotal += add_points;
             ScoreController.PointsNotTouchingScreen(add_points);
              
             

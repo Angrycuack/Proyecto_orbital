@@ -2398,6 +2398,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game over
       objectReference: {fileID: 0}
+    - target: {fileID: 850374459985099286, guid: 549c15d19d6dead4a943677594d17675, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 850374460531622234, guid: 549c15d19d6dead4a943677594d17675, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

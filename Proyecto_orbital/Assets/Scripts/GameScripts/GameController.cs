@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     private float score;
     public int orbitNumber;
     private int playerScoreToPrint;
+    private int c_playerScoreToPrint;
 
     private void Awake()
     {
@@ -33,7 +34,8 @@ public class GameController : MonoBehaviour
 
         //scoreText.text = "Score: " + score.ToString("F0");
         playerScoreToPrint = ScoreController.ScoreToPrint();
-        scoreText.text = playerScoreToPrint.ToString();
+        c_playerScoreToPrint = playerScoreToPrint;
+        scoreText.text = c_playerScoreToPrint.ToString();
     }
     /// <summary>
     /// Método que devuelve al jugador a la pantalla de Menú.

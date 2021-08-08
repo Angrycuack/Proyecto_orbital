@@ -6,7 +6,9 @@ public class ScoreController
 {
     public static int pointsToAddCloseWall;
     private static int poinsToAddNotTouching;
-    public static int playerScore;
+    public static int playerScoreTotal;
+    public static int c_playerScoreTotal;
+    private static int save_PlayerScore;
     private int pointsCloseWall;
     private static int playerScore_;
     private static int playerScore_print;
@@ -16,7 +18,12 @@ public class ScoreController
     /// </summary>
     public static void PointsWhenOrbitClosetoWall(int scoretoAdd)
     {
-        pointsToAddCloseWall = scoretoAdd;
+        if (c_playerScoreTotal != playerScoreTotal)
+        {
+            c_playerScoreTotal = playerScoreTotal + scoretoAdd;
+        }
+        save_PlayerScore = c_playerScoreTotal;
+        Debug.Log("detectado: " + save_PlayerScore);
     }
 
     /// <summary>
@@ -25,16 +32,23 @@ public class ScoreController
     public static void PointsTraveledDistance (float distanceScore)
     {
 
-        playerScore = (int) Mathf.Round(distanceScore);
+        playerScoreTotal = (int) Mathf.Round(distanceScore);
     }
 
     /// <summary>
     /// Tras pasar 5 segundos sin tocar la pantalla
     /// </summary>
-    public static void PointsNotTouchingScreen (float scoretoAdd)
+    public static void PointsNotTouchingScreen (int scoretoAdd)
     {
-        Debug.Log(scoretoAdd + "Puntos");
+        Debug.Log(scoretoAdd + " Puntos");
+        Debug.Log(c_playerScoreTotal + " puntos total");
         poinsToAddNotTouching = (int) Mathf.Round(scoretoAdd);
+        if(c_playerScoreTotal != playerScoreTotal)
+        {
+            c_playerScoreTotal = playerScoreTotal + poinsToAddNotTouching;
+        }
+        Debug.Log(c_playerScoreTotal + "sumado");
+        save_PlayerScore = c_playerScoreTotal;
     }
 
     /// <summary>
@@ -51,11 +65,10 @@ public class ScoreController
     /// <returns></returns>
     public static int ScoreToPrint()
     {
-
-        playerScore_ = playerScore;
-        playerScore_ += poinsToAddNotTouching;
-        playerScore_ += pointsToAddCloseWall;
-        playerScore_print = playerScore_;
+            
+        c_playerScoreTotal = playerScoreTotal + save_PlayerScore;
+        playerScore_print = c_playerScoreTotal;
+            
         return playerScore_print;
     }
 }
