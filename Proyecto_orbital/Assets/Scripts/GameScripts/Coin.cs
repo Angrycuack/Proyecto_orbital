@@ -30,7 +30,7 @@ public class Coin : MonoBehaviour
         Debug.Log("El numero es " + valueCoins + " monedas");
         while(playerPickedCoin)
         {
-            gameController.AddCoins(playerCoins);
+            gameController.AddCoins(playerCoins); //llamar a addcoins
             playerPickedCoin = false;
         }
         
