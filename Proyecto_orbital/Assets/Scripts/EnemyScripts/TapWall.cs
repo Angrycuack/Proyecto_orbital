@@ -18,6 +18,8 @@ public class TapWall : MonoBehaviour
         wallCollider = GetComponent<BoxCollider>();
     }
 
+
+
     void Update()
     {
         //Cada vez que se pulsa el ratón, se desactiva/activa la visual del objeto 
