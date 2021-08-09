@@ -64,7 +64,7 @@ public class ScoreController
             
         c_playerScoreTotal = playerScoreTotal + save_PlayerScore;
         playerScore_print = c_playerScoreTotal;
-            
+        Coin.ConvertPointsToCoins(c_playerScoreTotal);
         return playerScore_print;
     }
 }

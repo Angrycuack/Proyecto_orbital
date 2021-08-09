@@ -39,7 +39,8 @@ public class Coin : MonoBehaviour
     public static int ConvertPointsToCoins (int pScore)
     {
         int sc = pScore / 100;
-        return playerCoins =+ sc;
+        playerCoins += sc;
+        return playerCoins;
     }
 
 }
