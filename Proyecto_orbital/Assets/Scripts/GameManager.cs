@@ -12,11 +12,14 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
 
+<<<<<<< Updated upstream
         //QualitySettings.vSyncCount = 3 ;
         //Resolution playerScreen = Screen.currentResolution;
         //if(playerScreen.refreshRate > 60)
 
 
+=======
+>>>>>>> Stashed changes
         QualitySettings.vSyncCount = 3 ;
         Resolution playerScreen = Screen.currentResolution;
         if(playerScreen.refreshRate >= 60)
