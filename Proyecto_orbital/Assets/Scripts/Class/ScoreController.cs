@@ -7,6 +7,7 @@ public class ScoreController
     public static int pointsToAddCloseWall;
     private static int poinsToAddNotTouching;
     public static int playerScoreTotal;
+    private static int playerDistance;
     public static int c_playerScoreTotal;
     private static int save_PlayerScore;
     private static int playerScore_print;
@@ -29,7 +30,9 @@ public class ScoreController
     public static void PointsTraveledDistance (float distanceScore)
     {
 
-        playerScoreTotal = (int) Mathf.Round(distanceScore);
+        playerDistance = (int) Mathf.Round(distanceScore);
+        playerScoreTotal += playerDistance;
+        Debug.Log(playerScoreTotal);
     }
 
     /// <summary>
@@ -42,7 +45,7 @@ public class ScoreController
         poinsToAddNotTouching = (int) Mathf.Round(scoretoAdd);
         if(c_playerScoreTotal != playerScoreTotal)
         {
-            c_playerScoreTotal = playerScoreTotal + poinsToAddNotTouching;
+            c_playerScoreTotal += poinsToAddNotTouching;
         }
         save_PlayerScore = c_playerScoreTotal;
     }

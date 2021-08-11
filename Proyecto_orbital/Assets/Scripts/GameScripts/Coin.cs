@@ -11,6 +11,7 @@ public class Coin : MonoBehaviour
     void Start()
     {
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        
     }
     private void OnTriggerEnter(Collider other)
     {

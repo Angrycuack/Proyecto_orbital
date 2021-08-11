@@ -41,7 +41,7 @@ public class PlayerMoves : MonoBehaviour
         
     }
 
-    void FixedUpdate()
+    void Update()
     {
         //// probar poner en un array los direcciones
         //// y llamarlo con loop

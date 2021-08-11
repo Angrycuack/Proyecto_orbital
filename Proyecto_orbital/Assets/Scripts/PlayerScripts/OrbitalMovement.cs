@@ -104,7 +104,7 @@ public class OrbitalMovement : MonoBehaviour
         if (prev_Timer < gTime && dif_Time >= set_TimerNoTouch)
         {
             Debug.LogWarning("Time " + prev_Timer + " Pressed " + gTime + " Dif " + dif_Time);
-            add_points = set_TimerNoTouch;
+            add_points += set_TimerNoTouch;
             //ScoreController.playerScoreTotal += add_points;
             ScoreController.PointsNotTouchingScreen(add_points);
              
