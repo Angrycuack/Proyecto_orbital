@@ -7,7 +7,7 @@ public class Player
 {
     public string playerName;
     public int hiScore;
-    public int premium;
+    public int coins;
     private int playerCash;
     private string cardName;
     private string cardType;

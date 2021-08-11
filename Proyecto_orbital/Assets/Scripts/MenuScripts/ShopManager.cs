@@ -13,6 +13,6 @@ public class ShopManager : MonoBehaviour
 
     private void RefreshUI()
     {
-        MoneyText.text = GameManager.instance.Player.premium.ToString();
+        MoneyText.text = GameManager.instance.Player.coins.ToString();
     }
 }

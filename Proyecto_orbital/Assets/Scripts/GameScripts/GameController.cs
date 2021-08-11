@@ -13,7 +13,6 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject showCoin;
-    [SerializeField] ScoreController scoreController;
     public int totalCoins;
     private float score;
     public int orbitNumber;
@@ -25,8 +24,7 @@ public class GameController : MonoBehaviour
         totalCoins = 0;
         score = 0f;
         instance = this;
-        scoreController = new ScoreController();
-        
+               
     }
     private void Update()
     {

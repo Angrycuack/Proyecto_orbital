@@ -21,7 +21,7 @@ public class MenuManager : MonoBehaviour
     /// </summary>
     private void RefreshUI()
     {
-        premiumText.text = GameManager.instance.Player.premium.ToString();
+        premiumText.text = GameManager.instance.Player.coins.ToString();
         hiScoreText.text = "Hi-Score: " + GameManager.instance.Player.hiScore;
     }
     /// <summary>

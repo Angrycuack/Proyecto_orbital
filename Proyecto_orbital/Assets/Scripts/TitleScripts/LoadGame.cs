@@ -12,7 +12,7 @@ public class LoadGame : MonoBehaviour
         }
         else
         {
-            GameManager.instance.Player.premium = 0;
+            GameManager.instance.Player.coins = 0;
             GameManager.instance.Player.hiScore = 0;
             GameManager.instance.Save();
         }
