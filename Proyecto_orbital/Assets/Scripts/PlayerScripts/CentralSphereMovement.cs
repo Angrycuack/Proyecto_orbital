@@ -11,30 +11,30 @@ public class CentralSphereMovement : MonoBehaviour
     //Variables de posiciones y prefabs de objetos.
     [SerializeField] private GameObject centralSphere;
     [SerializeField] private GameObject orbital;
+    [SerializeField] private GameObject buttonPU;
     [SerializeField] private GameObject[] actualOrbitInScene;
+
+    private string ActivePU;
 
     private void Start()
     {
         spawnPosition = new Vector3(centralSphere.transform.position.x, centralSphere.transform.position.y, centralSphere.transform.position.z - 3f);
         StartCoroutine(MultipleBall(1));
     }
-
-    private void Update()
+    public void RefreshPU(string power)
     {
-        //transform.Translate(Vector3.forward*speed*Time.deltaTime);
+        ActivePU = power;
+        if (power == "MultiplePU") { StartCoroutine(MultipleBall(2)); }
+        else { buttonPU.GetComponent<PowerUpButton>().RefreshButton(ActivePU); }
     }
-
     /// <summary>
     /// Método que se encarga de iniciar las corrutinas de Power Up.
     /// </summary>
-    public void PowerUp(string power)
+    public void PowerUp()
     {
         actualOrbitInScene = GameObject.FindGameObjectsWithTag("Orbital");
-        switch (power)
+        switch (ActivePU)
         {
-            case "MultiplePU":
-                StartCoroutine(MultipleBall(2));
-                break;
             case "SpeedPU":
                 orbital.GetComponent<OrbitalMovement>().SpeedUp(true);
                 break;

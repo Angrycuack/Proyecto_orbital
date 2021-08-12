@@ -31,7 +31,7 @@ public class HealthPlayer : MonoBehaviour
         if (collision.gameObject.CompareTag("PowerUp"))
         {
             GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraOffSet>().InOutEffect();
-            _player.PowerUp(collision.gameObject.name);
+            _player.RefreshPU(collision.gameObject.name);
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("IronEnemy"))
