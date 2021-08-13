@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centralSphere: {fileID: 0}
+  buttonPU: {fileID: 0}
   basicSpeed: 25
   set_TimerNoTouch: 5
 --- !u!114 &-6182930188022870325

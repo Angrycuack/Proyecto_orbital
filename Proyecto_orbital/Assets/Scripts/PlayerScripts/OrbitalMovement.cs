@@ -61,7 +61,7 @@ public class OrbitalMovement : MonoBehaviour
 
     }
     /// <summary>
-    /// Método que se encarga de aumentar o disminuar la velocidad del orbital.
+    /// Método que se encarga de aumentar o disminuir la velocidad del orbital.
     /// </summary>
     /// <param name="up_down">Indica si hay que aumentar la velocidad o parar el orbital.</param>
     public void SpeedUp(bool up_down)
