@@ -63,7 +63,7 @@ public class CentralSphereMovement : MonoBehaviour
         for(int i = 0; i< number; i++)
         {
             Instantiate(orbital, spawnPosition, orbital.transform.rotation);
-            GameController.instance.AddOrbit(true); // En esta linea error NULL
+            GameController.instance.AddOrbit(true); 
             yield return new WaitForSeconds(Random.Range(1f,3f));
         }
         

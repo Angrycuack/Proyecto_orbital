@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -6182930188022870325}
   - component: {fileID: -1344090080430268042}
   - component: {fileID: 4817768440798680902}
+  - component: {fileID: -8108369719298433388}
   m_Layer: 0
   m_Name: Orbital
   m_TagString: Orbital
@@ -114,7 +115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centralSphere: {fileID: 0}
-  buttonPU: {fileID: 0}
   basicSpeed: 25
   set_TimerNoTouch: 5
 --- !u!114 &-6182930188022870325
@@ -261,6 +261,24 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &-8108369719298433388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2495530547294270877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &4830092718479460531
 GameObject:
   m_ObjectHideFlags: 0

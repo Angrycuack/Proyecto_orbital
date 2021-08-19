@@ -43,4 +43,5 @@ public class PowerUpButton : MonoBehaviour
         coolDownActive = state;
         timerCD = PowerUpCD;
     }
+    
 }
